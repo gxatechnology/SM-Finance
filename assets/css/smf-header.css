@@ -1,0 +1,151 @@
+/* SMF site navigation v4 — isolated from the original Stitch page CSS. */
+.smf-site-header, .smf-site-header *, .smf-site-header *::before, .smf-site-header *::after{box-sizing:border-box}
+.smf-site-header{
+  display:block;position:sticky;top:0;left:0;right:0;z-index:9999;
+  width:100%;height:auto;min-height:88px;
+  background:rgba(255,255,255,.97);border-bottom:1px solid #e5edf2;
+  box-shadow:0 2px 12px rgba(8,44,83,.035);backdrop-filter:blur(14px);
+  padding:0;color:#082c53;
+}
+.smf-header-inner{
+  min-height:88px;width:min(100% - 52px,1500px);margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.smf-site-header .smf-brand{
+  display:inline-flex;align-items:center;gap:11px;flex-shrink:0;
+  text-decoration:none;color:#082c53;min-width:0;
+}
+.smf-site-header .smf-brand img{
+  width:62px;height:62px;min-width:62px;object-fit:contain;display:block;
+}
+.smf-site-header .smf-brand-title{display:flex;flex-direction:column;gap:4px;white-space:nowrap;min-width:0}
+.smf-site-header .smf-brand-title strong{font:700 20px/1.1 'Plus Jakarta Sans',Inter,Arial,sans-serif;color:#082c53;letter-spacing:-.03em}
+.smf-site-header .smf-brand-title small{font:600 10px/1.3 Inter,Arial,sans-serif;color:#24405f;letter-spacing:.10em}
+.smf-site-header .smf-desktop-nav{
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(10px,1.45vw,23px);flex:1;min-width:0;flex-wrap:nowrap;
+}
+.smf-site-header .smf-nav-item,
+.smf-site-header .smf-more > summary{
+  display:inline-flex;align-items:center;min-height:44px;
+  font:600 13px/1.3 Inter,Arial,sans-serif;
+  color:#3d536b;text-decoration:none;white-space:nowrap;cursor:pointer;
+  border:0;background:none;transition:color .2s ease;
+}
+.smf-site-header .smf-nav-item:hover, .smf-site-header .smf-nav-item.active,
+.smf-site-header .smf-more > summary:hover{color:#087b38}
+.smf-site-header .smf-nav-item.active{box-shadow:inset 0 -2px #087b38}
+.smf-site-header .smf-more{position:relative}
+.smf-site-header .smf-more > summary{gap:5px;list-style:none}
+.smf-site-header .smf-more > summary::-webkit-details-marker{display:none}
+.smf-site-header .smf-more > summary:focus-visible,
+.smf-site-header .smf-nav-item:focus-visible,
+.smf-site-header a:focus-visible,.smf-site-header button:focus-visible{outline:3px solid #81c69f;outline-offset:3px}
+.smf-site-header .smf-more-menu{
+  position:absolute;top:calc(100% + 6px);right:0;min-width:240px;
+  background:#fff;border:1px solid #e0e9f0;border-radius:12px;
+  padding:8px;display:flex;flex-direction:column;
+  box-shadow:0 14px 35px rgba(4,29,55,.14);z-index:2000;
+}
+.smf-site-header .smf-more-item{
+  display:block;padding:11px 13px;border-radius:7px;
+  font:500 13px/1.35 Inter,Arial,sans-serif;text-decoration:none;color:#294260;
+}
+.smf-site-header .smf-more-item:hover,.smf-site-header .smf-more-item.active{background:#edf8f0;color:#087b38}
+.smf-header-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.smf-site-header .smf-contact-btn{
+  min-height:46px;padding:0 17px;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  background:#087b38;border-radius:9px;text-decoration:none;color:#fff;
+  font:700 13px/1.2 Inter,Arial,sans-serif;white-space:nowrap;
+  box-shadow:0 4px 11px rgba(8,123,56,.12);
+}
+.smf-site-header .smf-contact-btn:hover{background:#06622d;color:#fff}
+.smf-site-header .smf-mobile-menu-toggle{display:none}
+.smf-site-header .smf-mobile-nav{display:none!important}
+/* Old Stitch header used fixed positioning and main padding. The new header is sticky/in-flow. */
+.smf-site-header + main{padding-top:0!important}
+.smf-legal-page .smf-site-header + main{padding-top:56px!important}
+
+@media(max-width:1279px) and (min-width:1180px){
+ .smf-header-inner{width:min(100% - 36px,1500px);gap:11px}
+ .smf-site-header .smf-brand img{width:56px;height:56px;min-width:56px}
+ .smf-site-header .smf-brand-title strong{font-size:18px}
+ .smf-site-header .smf-brand-title small{font-size:9px;letter-spacing:.07em}
+ .smf-site-header .smf-desktop-nav{gap:10px}
+ .smf-site-header .smf-nav-item,.smf-site-header .smf-more > summary{font-size:12px}
+ .smf-site-header .smf-contact-btn{padding:0 12px}
+}
+@media(max-width:1179px){
+ .smf-site-header{min-height:76px}
+ .smf-header-inner{min-height:76px;width:calc(100% - 32px);gap:12px}
+ .smf-site-header .smf-desktop-nav{display:none!important}
+ .smf-site-header .smf-brand img{height:54px;width:54px;min-width:54px}
+ .smf-site-header .smf-brand-title strong{font-size:18px}
+ .smf-site-header .smf-brand-title small{font-size:9.5px}
+ .smf-site-header .smf-mobile-menu-toggle{
+   display:inline-flex!important;position:static!important;align-items:center;justify-content:center;
+   width:44px;height:44px;padding:0;border:1px solid #d8e4ed;
+   border-radius:10px;background:#fff;color:#082c53;
+   font:26px/1 Arial,sans-serif;cursor:pointer;flex-shrink:0;
+ }
+ .smf-site-header .smf-mobile-nav{
+   position:absolute!important;top:100%!important;left:16px!important;right:16px!important;
+   z-index:3000;flex-direction:column;max-height:min(70vh,660px);overflow-y:auto;
+   border:1px solid #dce5ed;background:#fff;border-radius:12px;
+   box-shadow:0 20px 48px rgba(4,29,55,.17);padding:9px;
+ }
+ .smf-site-header .smf-mobile-nav.is-open{display:flex!important}
+ .smf-site-header .smf-mobile-item{
+   display:block;font:600 14px/1.4 Inter,Arial,sans-serif;text-decoration:none;
+   color:#1d3752;padding:11px 13px;border-radius:7px;border:0;
+ }
+ .smf-site-header .smf-mobile-item:hover,.smf-site-header .smf-mobile-item.active{background:#eff8f2;color:#087b38}
+}
+@media(max-width:630px){
+ .smf-header-inner{width:calc(100% - 24px)}
+ .smf-site-header .smf-contact-btn{display:none!important}
+ .smf-site-header .smf-brand{gap:8px}
+ .smf-site-header .smf-brand img{width:52px;height:52px;min-width:52px}
+ .smf-site-header .smf-brand-title strong{font-size:17px}
+ .smf-site-header .smf-brand-title small{font-size:9px;letter-spacing:.05em}
+}
+@media(max-width:360px){
+ .smf-site-header .smf-brand-title strong{font-size:16px}
+ .smf-site-header .smf-brand-title small{font-size:8.5px;letter-spacing:0}
+ .smf-site-header .smf-brand img{width:49px;height:49px;min-width:49px}
+ .smf-site-header .smf-header-inner{gap:6px}
+}
+@media(prefers-reduced-motion:reduce){.smf-site-header *{transition:none!important}}
+
+/* Targeted small-screen repairs found in original Stitch layouts. */
+@media(max-width:1179px){
+ .smf-page-women-entrepreneurship main .smf-wrap-actions{flex-wrap:wrap!important;width:100%!important;min-width:0!important}
+ .smf-page-women-entrepreneurship main .smf-wrap-actions > *{max-width:100%;min-width:0}
+ .smf-page-women-entrepreneurship main .md\:grid-cols-3 > *{min-width:0}
+ .smf-page-women-entrepreneurship main .bg-surface-container-lowest.p-5.rounded-lg.flex > div{min-width:0;overflow-wrap:anywhere}
+ .smf-page-leadership main .flex.items-center.gap-4.flex-shrink-0{flex-wrap:wrap;flex-shrink:1;min-width:0}
+ .smf-page-leadership main .flex.items-center.gap-4.flex-shrink-0 > *{max-width:100%;min-width:0}
+ .smf-page-contact main .mt-4.pt-3.flex.items-center.gap-2{flex-wrap:wrap}
+ .smf-page-understanding-emi main .flex.items-center.gap-2{flex-wrap:wrap}
+ .smf-page-understanding-emi main .overflow-x-auto{max-width:100%;}
+}
+@media(max-width:800px){
+ .smf-page-women-entrepreneurship main .md\:grid-cols-3{grid-template-columns:minmax(0,1fr)!important}
+ .smf-page-corporate-disclosures main,.smf-page-about main{overflow-x:clip}
+ .smf-page-corporate-disclosures main h3{overflow-wrap:anywhere}
+ .smf-page-understanding-emi main .flex.items-center.gap-2 > *{max-width:100%;min-width:0}
+ .smf-page-index main .font-mono{overflow-wrap:anywhere}
+}
+@media(max-width:1179px){
+  .smf-page-women-entrepreneurship main section.bg-primary > .max-w-7xl{flex-direction:column!important;align-items:stretch!important;}
+  .smf-page-women-entrepreneurship main .smf-wrap-actions{flex-shrink:1!important;flex-basis:auto!important;width:100%!important;justify-content:flex-start!important;}
+  .smf-page-women-entrepreneurship main .smf-wrap-actions a{max-width:100%!important;white-space:normal!important;overflow-wrap:anywhere;}
+}
+@media(max-width:430px){
+  /* Clip only pre-existing mobile out-of-bounds decorations/icons, not site-wide content. */
+  .smf-page-contact main,.smf-page-women-entrepreneurship main,
+  .smf-page-our-focus main,.smf-page-understanding-emi main{overflow-x:clip;}
+}
+@media(max-width:1179px){
+  .smf-page-women-entrepreneurship main{overflow-x:clip;}
+}

@@ -1,0 +1,25 @@
+SMF V4 — Restored from user-supplied original ZIP (1)
+SOURCE: SMF_Deploy_To_Public_Html(1).zip
+PAGES: 16 HTML pages (12 Stitch pages + 4 supporting)
+
+Changes limited to:
+- Consistent responsive nav header on all 16 pages (desktop 1180px+; compact menu below).
+- More dropdown preserves access to secondary pages.
+- Tight transparent crop of existing SMF symbol for improved logo visibility (source symbol preserved).
+- Removal of long site-wide banner; disclosures remain on corporate/legal pages.
+- Accessible mobile menu: click, close on navigation, click outside, Escape.
+- Header is sticky and occupies space naturally; avoids old fixed-header overlap.
+
+Original Stitch page content, images and visuals unchanged.
+Backend: original PHP contact + admin + private storage files byte-for-byte unchanged.
+Source design preserved.
+
+Static checks:
+- All 16 pages have common header, desktop nav, mobile nav, CSS and JS: PASS
+- All local HTML links resolve: PASS
+- All original PHP/API/admin/private files unchanged: PASS
+- Local Chromium browser: 16 pages × 12 viewport widths (320, 375, 390, 430, 768, 900, 1024, 1179, 1180, 1280, 1440, 1650) = 192 tests, no horizontal overflow or header/menu collision. Also tested mobile menu open/close & Escape on homepage. External Google icons/images may render differently in browser where network access is available. PHP backend/server integration has not been retested in this CSS/navigation update; backend files were preserved byte-for-byte.
+
+Server requirement: PHP-enabled Apache/LiteSpeed hosting; local file:// preview cannot execute PHP.
+External Stitch image URLs may require internet; their existing local fallback images remain.
+Before launch: client verify registered address, contact number, product and regulator claims.
