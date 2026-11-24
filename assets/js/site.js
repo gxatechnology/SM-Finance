@@ -20,4 +20,13 @@
   });
   // Existing Stitch calculator and FAQ scripts are retained where they illustrate general education only.
   // They do not quote actual company lending terms.
+
+  // Graceful fallback for unapproved or withheld field photography
+  window.addEventListener('error', function(event) {
+    var target = event.target;
+    if (target && target.tagName === 'IMG' && target.src && target.src.indexOf('company-activities-') !== -1) {
+      target.onerror = null;
+      target.src = 'assets/images/client/smf-og-image.webp';
+    }
+  }, true);
 })();
