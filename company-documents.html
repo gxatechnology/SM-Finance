@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Company Registration &amp; Legal Documents | Sambarn Micro Finance</title>
+  <meta name="description" content="Verified statutory certificates, tax registrations and corporate incorporation records for Sambarn Micro Finance Private Limited."/>
+  <link rel="icon" href="assets/images/client/smf-favicon-32x32.png"/>
+  <link rel="stylesheet" href="assets/css/site.css"/>
+  <link rel="stylesheet" href="assets/css/smf-header.css"/>
+  <link rel="stylesheet" href="assets/css/smf-bilingual.css"/>
+  <meta name="theme-color" content="#082C53"/>
+  <meta property="og:title" content="Company Documents | Sambarn Micro Finance"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="assets/images/client/smf-og-image.webp"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <style>
+    /* Certificate card styling */
+    .doc-cert-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #dce5ed;
+      box-shadow: 0 4px 20px rgba(8, 44, 83, 0.05);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .doc-cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(8, 44, 83, 0.12);
+      border-color: #81c69f;
+    }
+    .doc-preview-frame {
+      position: relative;
+      background: #f4f7fa;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      border-bottom: 1px solid #e9eff5;
+    }
+    .doc-preview-thumb {
+      width: 100%;
+      height: 380px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      border: 1px solid #e2e8f0;
+      transition: transform 0.3s ease;
+    }
+    .doc-cert-card:hover .doc-preview-thumb {
+      transform: scale(1.02);
+    }
+    .doc-preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 44, 83, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      backdrop-filter: blur(2px);
+      color: #ffffff;
+    }
+    .doc-preview-frame:hover .doc-preview-overlay,
+    .doc-preview-frame:focus-visible .doc-preview-overlay {
+      opacity: 1;
+    }
+    .doc-preview-btn {
+      padding: 10px 20px;
+      border-radius: 9999px;
+      background: #087b38;
+      color: #ffffff;
+      font: 600 13px/1 Inter, sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    /* Modal Viewer */
+    .doc-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(4, 23, 44, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .doc-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .doc-modal-content {
+      background: #ffffff;
+      border-radius: 16px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+    .doc-modal-header {
+      padding: 16px 22px;
+      background: #082c53;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .doc-modal-header h3 {
+      font: 700 17px/1.2 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      color: #ffffff;
+    }
+    .doc-modal-header small {
+      font: 500 12px/1.2 Inter, sans-serif;
+      color: #93c5fd;
+      display: block;
+      margin-top: 3px;
+    }
+    .doc-modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .doc-modal-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 0;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .doc-modal-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .doc-modal-body {
+      flex: 1;
+      overflow-y: auto;
+      background: #102438;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      min-height: 280px;
+    }
+    .doc-modal-img {
+      max-width: 100%;
+      max-height: calc(90vh - 140px);
+      object-fit: contain;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+      cursor: zoom-in;
+    }
+    .doc-modal-img.is-zoomed {
+      max-height: none;
+      cursor: zoom-out;
+      transform: scale(1.4);
+      margin: 40px auto;
+    }
+    .doc-modal-footer {
+      padding: 14px 22px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font: 500 12px/1.4 Inter, sans-serif;
+      color: #475569;
+    }
+    .doc-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      background: #e2e8f0;
+      color: #1e293b;
+      font-weight: 600;
+      border: 0;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .doc-nav-btn:hover {
+      background: #cbd5e1;
+    }
+
+    @media (max-width: 640px) {
+      .doc-preview-thumb {
+        height: 290px;
+      }
+      .doc-modal {
+        padding: 8px;
+      }
+      .doc-modal-content {
+        max-height: 98vh;
+      }
+      .doc-modal-body {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body class="smf-page-documents bg-surface font-body-md text-on-surface antialiased" data-smf-page="company-documents.html">
+
+<!-- Site Header -->
+<header class="smf-site-header" id="site-header">
+  <div class="smf-utility-bar">
+    <span class="smf-utility-message" data-en="Registered in Bihar • Corporate Information" data-hi="बिहार में पंजीकृत • कॉर्पोरेट जानकारी">Registered in Bihar • Corporate Information</span>
+    <div class="smf-language-switch" role="group" aria-label="Website language">
+      <button type="button" class="smf-lang-btn" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" class="smf-lang-btn" data-lang="hi" aria-pressed="false">हिंदी</button>
+    </div>
+  </div>
+
+  <div class="smf-header-inner">
+    <a href="index.html" class="smf-brand" aria-label="Sambarn Micro Finance — Homepage">
+      <img src="assets/images/smf-header-symbol.png" alt="SMF emblem" width="62" height="62" loading="eager" decoding="async"/>
+      <span class="smf-brand-title">
+        <strong>Sambarn</strong>
+        <small>MICRO FINANCE PVT. LTD.</small>
+      </span>
+    </a>
+
+    <nav class="smf-desktop-nav" aria-label="Main navigation">
+      <a class="smf-nav-item" href="index.html" data-en="Home" data-hi="होम">Home</a>
+      <a class="smf-nav-item" href="about.html" data-en="About Us" data-hi="हमारे बारे में">About Us</a>
+      <a class="smf-nav-item" href="our-focus.html" data-en="Our Focus" data-hi="हमारा उद्देश्य">Our Focus</a>
+      <a class="smf-nav-item" href="services.html" data-en="Services" data-hi="सेवाएँ">Services</a>
+      <a class="smf-nav-item" href="leadership.html" data-en="Leadership" data-hi="नेतृत्व">Leadership</a>
+      <a class="smf-nav-item" href="financial-awareness.html" data-en="Financial Awareness" data-hi="वित्तीय जागरूकता">Financial Awareness</a>
+      
+      <details class="smf-more">
+        <summary data-en="More" data-hi="और">More <span aria-hidden="true">▾</span></summary>
+        <div class="smf-more-menu">
+          <a class="smf-more-item active" href="company-documents.html" aria-current="page" data-en="Company Documents" data-hi="कंपनी दस्तावेज़">Company Documents</a>
+          <a class="smf-more-item" href="corporate-disclosures.html" data-en="Corporate Information" data-hi="कॉर्पोरेट जानकारी">Corporate Information</a>
+          <a class="smf-more-item" href="gallery.html" data-en="Activity Gallery" data-hi="गतिविधि गैलरी">Activity Gallery</a>
+          <a class="smf-more-item" href="women-entrepreneurship.html" data-en="Women &amp; Entrepreneurship" data-hi="महिला उद्यमिता">Women &amp; Entrepreneurship</a>
+          <a class="smf-more-item" href="small-business.html" data-en="Small Business" data-hi="छोटे व्यवसाय">Small Business</a>
+          <a class="smf-more-item" href="understanding-emi.html">Understanding EMI</a>
+          <a class="smf-more-item" href="faq.html" data-en="FAQs" data-hi="सामान्य प्रश्न">FAQs</a>
+          <a class="smf-more-item" href="contact.html" data-en="Contact Us" data-hi="संपर्क करें">Contact Us</a>
+          <a class="smf-more-item" href="community-stories.html" data-en="Community Stories" data-hi="सामुदायिक कहानियाँ">Community Stories</a>
+          <a class="smf-more-item" href="community-outreach.html" data-en="Community Outreach" data-hi="सामुदायिक पहल">Community Outreach</a>
+        </div>
+      </details>
+    </nav>
+
+    <div class="smf-header-actions">
+      <a href="contact.html" class="smf-contact-btn" data-en="Contact Us" data-hi="संपर्क करें">Contact Us <span aria-hidden="true">↗</span></a>
+      <button type="button" class="smf-mobile-menu-toggle" aria-expanded="false" aria-controls="smfMobileNav" aria-label="Open navigation menu" data-en-aria="Open navigation menu" data-hi-aria="मेन्यू खोलें">☰</button>
+    </div>
+  </div>
+
+  <nav class="smf-mobile-nav" id="smfMobileNav" aria-label="Mobile navigation" hidden>
+    <a class="smf-mobile-item" href="index.html" data-en="Home" data-hi="होम">Home</a>
+    <a class="smf-mobile-item" href="about.html" data-en="About Us" data-hi="हमारे बारे में">About Us</a>
+    <a class="smf-mobile-item" href="our-focus.html" data-en="Our Focus" data-hi="हमारा उद्देश्य">Our Focus</a>
+    <a class="smf-mobile-item" href="services.html" data-en="Services" data-hi="सेवाएँ">Services</a>
+    <a class="smf-mobile-item" href="leadership.html" data-en="Leadership" data-hi="नेतृत्व">Leadership</a>
+    <a class="smf-mobile-item" href="financial-awareness.html" data-en="Financial Awareness" data-hi="वित्तीय जागरूकता">Financial Awareness</a>
+    <a class="smf-mobile-item active" href="company-documents.html" aria-current="page" data-en="Company Documents" data-hi="कंपनी दस्तावेज़">Company Documents</a>
+    <a class="smf-mobile-item" href="corporate-disclosures.html" data-en="Corporate Information" data-hi="कॉर्पोरेट जानकारी">Corporate Information</a>
+    <a class="smf-mobile-item" href="gallery.html" data-en="Activity Gallery" data-hi="गतिविधि गैलरी">Activity Gallery</a>
+    <a class="smf-mobile-item" href="women-entrepreneurship.html" data-en="Women &amp; Entrepreneurship" data-hi="महिला उद्यमिता">Women &amp; Entrepreneurship</a>
+    <a class="smf-mobile-item" href="small-business.html" data-en="Small Business" data-hi="छोटे व्यवसाय">Small Business</a>
+    <a class="smf-mobile-item" href="understanding-emi.html">Understanding EMI</a>
+    <a class="smf-mobile-item" href="faq.html" data-en="FAQs" data-hi="सामान्य प्रश्न">FAQs</a>
+    <a class="smf-mobile-item" href="contact.html" data-en="Contact Us" data-hi="संपर्क करें">Contact Us</a>
+    <a class="smf-mobile-item" href="privacy.html">Privacy Policy</a>
+    <a class="smf-mobile-item" href="terms.html">Terms</a>
+    <a class="smf-mobile-item" href="disclaimer.html">Disclaimer</a>
+  </nav>
+</header>
+
+<!-- Main English View -->
+<main class="w-full bg-surface" id="smfEnglishMain" data-language="en">
+  
+  <!-- Hero Section -->
+  <section class="relative w-full overflow-hidden bg-primary text-on-primary py-16 lg:py-20 px-6 lg:px-12">
+    <div class="max-w-7xl mx-auto flex flex-col gap-5">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/15 backdrop-blur-md text-secondary-fixed font-label-md text-label-md">
+          <span class="material-symbols-outlined text-[16px]">verified</span> Official Statutory Records
+        </span>
+        <span class="text-on-primary-container text-body-sm">Government Registrations</span>
+      </div>
+      
+      <div class="max-w-3xl space-y-3">
+        <h1 class="font-display-hero text-headline-lg lg:text-display-hero text-on-primary tracking-tight font-bold">
+          Company Registration &amp;<br/><span class="text-secondary-fixed-dim">Legal Documents</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-primary-container leading-relaxed">
+          Official statutory certificates, tax registrations and corporate incorporation records for Sambarn Micro Finance Private Limited. Click any document card to expand and view high-resolution certificate details.
+        </p>
+      </div>
+
+      <div class="mt-3 p-4 rounded-xl bg-surface-container-lowest/10 border border-surface-container-lowest/20 backdrop-blur-md max-w-3xl text-on-primary text-body-sm flex items-start gap-3">
+        <span class="material-symbols-outlined text-secondary-fixed text-[22px] flex-shrink-0 mt-0.5">info</span>
+        <p class="leading-relaxed opacity-90 text-[13px]">
+          <strong>Notice:</strong> Document previews are provided for corporate transparency, institutional due diligence and official record verification. Raw identity records are presented in display-only mode.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Document Grid Section -->
+  <section class="w-full py-14 lg:py-20 px-6 lg:px-12 bg-surface">
+    <div class="max-w-7xl mx-auto space-y-10">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-surface-container">
+        <div>
+          <span class="text-secondary font-label-md uppercase tracking-wider font-semibold">Central Document Archive</span>
+          <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Verified Corporate Certificates</h2>
+        </div>
+        <span class="text-on-surface-variant font-label-md text-label-md bg-surface-container px-3.5 py-1.5 rounded-full">4 Verified Documents (Click to Expand)</span>
+      </div>
+
+      <!-- 4 Certificate Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Document 1: Certificate of Incorporation (ROC) -->
+        <article class="doc-cert-card group">
+          <div class="doc-preview-frame" tabindex="0" role="button" aria-label="View Certificate of Incorporation" onclick="openDocModal(0)">
+            <img src="assets/images/documents/doc-roc-incorporation.webp" alt="Certificate of Incorporation — ROC Patna" class="doc-preview-thumb" loading="lazy"/>
+            <div class="doc-preview-overlay">
+              <span class="material-symbols-outlined text-[32px]">zoom_in</span>
+              <span class="doc-preview-btn">Expand Preview</span>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[11px] font-semibold tracking-wider uppercase bg-primary/10 text-primary">ROC / MCA</span>
+                <span class="text-[11px] font-mono text-secondary font-bold">Active</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-primary font-bold mb-1.5 leading-snug">Certificate of Incorporation</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Registrar of Companies (ROC), Patna. Issued under section 7(2) and 8(1) of the Companies Act, 2013.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-surface-container space-y-1.5 text-[12px] text-on-surface-variant">
+              <div class="flex justify-between"><span>CIN:</span><strong class="font-mono text-primary">U64990BR2025PTC079940</strong></div>
+              <div class="flex justify-between"><span>Date:</span><strong class="text-primary">06 November 2025</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Document 2: Udyam Registration Certificate -->
+        <article class="doc-cert-card group">
+          <div class="doc-preview-frame" tabindex="0" role="button" aria-label="View Udyam Registration Certificate" onclick="openDocModal(1)">
+            <img src="assets/images/documents/doc-udyam-registration.webp" alt="Udyam Registration Certificate — Ministry of MSME" class="doc-preview-thumb" loading="lazy"/>
+            <div class="doc-preview-overlay">
+              <span class="material-symbols-outlined text-[32px]">zoom_in</span>
+              <span class="doc-preview-btn">Expand Preview</span>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[11px] font-semibold tracking-wider uppercase bg-secondary/15 text-secondary">MSME Govt of India</span>
+                <span class="text-[11px] font-mono text-secondary font-bold">Verified</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-primary font-bold mb-1.5 leading-snug">Udyam Registration Certificate</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Ministry of Micro, Small &amp; Medium Enterprises, Govt. of India. Registered enterprise in West Champaran, Bihar.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-surface-container space-y-1.5 text-[12px] text-on-surface-variant">
+              <div class="flex justify-between"><span>Udyam No:</span><strong class="font-mono text-primary">UDYAM-BR-38-0064908</strong></div>
+              <div class="flex justify-between"><span>Enterprise:</span><strong class="text-primary">Sambarn Micro Finance</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Document 3: GST Registration Certificate -->
+        <article class="doc-cert-card group">
+          <div class="doc-preview-frame" tabindex="0" role="button" aria-label="View GST Registration Certificate" onclick="openDocModal(2)">
+            <img src="assets/images/documents/doc-gst-registration.webp" alt="GST Registration Certificate — Form GST REG-06" class="doc-preview-thumb" loading="lazy"/>
+            <div class="doc-preview-overlay">
+              <span class="material-symbols-outlined text-[32px]">zoom_in</span>
+              <span class="doc-preview-btn">Expand Preview</span>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[11px] font-semibold tracking-wider uppercase bg-primary/10 text-primary">Tax Registration</span>
+                <span class="text-[11px] font-mono text-secondary font-bold">Registered</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-primary font-bold mb-1.5 leading-snug">GST Registration Certificate</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Form GST REG-06 under Central GST Act, 2017 &amp; Bihar Goods &amp; Services Tax Act, 2017.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-surface-container space-y-1.5 text-[12px] text-on-surface-variant">
+              <div class="flex justify-between"><span>Jurisdiction:</span><strong class="text-primary">Bettiah, Bihar</strong></div>
+              <div class="flex justify-between"><span>Form:</span><strong class="font-mono text-primary">GST REG-06</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Document 4: PAN Card -->
+        <article class="doc-cert-card group">
+          <div class="doc-preview-frame" tabindex="0" role="button" aria-label="View Corporate PAN Card" onclick="openDocModal(3)">
+            <img src="assets/images/documents/doc-pan-card.webp" alt="Corporate PAN Card — Income Tax Department" class="doc-preview-thumb" loading="lazy"/>
+            <div class="doc-preview-overlay">
+              <span class="material-symbols-outlined text-[32px]">zoom_in</span>
+              <span class="doc-preview-btn">Expand Preview</span>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="px-2.5 py-0.5 rounded text-[11px] font-semibold tracking-wider uppercase bg-secondary/15 text-secondary">Income Tax Dept</span>
+                <span class="text-[11px] font-mono text-secondary font-bold">Allotted</span>
+              </div>
+              <h3 class="font-title-lg text-title-lg text-primary font-bold mb-1.5 leading-snug">Permanent Account Number (PAN)</h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Official Corporate PAN Card issued to Sambarn Micro Finance Private Limited by the Income Tax Department of India.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-surface-container space-y-1.5 text-[12px] text-on-surface-variant">
+              <div class="flex justify-between"><span>Entity:</span><strong class="text-primary">Private Limited Co.</strong></div>
+              <div class="flex justify-between"><span>Status:</span><strong class="text-secondary">Corporate Entity</strong></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Institutional Inquiries Callout -->
+      <div class="p-8 rounded-2xl bg-surface-container-low border border-surface-container flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="space-y-1">
+          <h4 class="font-title-lg text-title-lg text-primary font-bold">Need Certified True Copies or Banking Verification?</h4>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            Institutions, banking partners and government authorities may request certified copies through our official secretarial desk.
+          </p>
+        </div>
+        <a href="contact.html" class="h-11 px-6 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-all flex items-center gap-2 flex-shrink-0 shadow-sm">
+          <span>Submit Verification Request</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- Main Hindi View -->
+<main class="smf-hi-main w-full bg-surface" id="smfHindiMain" dir="auto" hidden data-language="hi">
+  
+  <!-- Hero Section (Hindi) -->
+  <section class="smf-hi-hero">
+    <div class="smf-content-shell smf-hi-hero-grid">
+      <div class="smf-hi-hero-copy">
+        <div class="smf-eyebrow">आधिकारिक वैधानिक अभिलेख</div>
+        <h1>कंपनी पंजीकरण एवं कानूनी दस्तावेज़</h1>
+        <p>सांबर्न माइक्रो फाइनेंस प्राइवेट लिमिटेड के सत्यापित वैधानिक प्रमाण पत्र, कर पंजीकरण एवं निगमन रिकॉर्ड। किसी भी दस्तावेज़ पर क्लिक करके उच्च-रिज़ॉल्यूशन प्रमाणपत्र देखें।</p>
+        <div class="smf-hi-actions">
+          <a href="contact.html" class="smf-hi-cta">सत्यापन अनुरोध भेजें ↗</a>
+          <a href="about.html" class="smf-hi-outline">कंपनी का परिचय</a>
+        </div>
+      </div>
+      <div class="smf-hi-hero-image">
+        <img src="assets/images/documents/doc-roc-incorporation.webp" alt="निगमन प्रमाण पत्र" loading="lazy" style="max-height:280px;object-fit:contain;background:#fff;padding:8px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.12);"/>
+        <small>कंपनी का आधिकारिक निगमन प्रमाण पत्र (ROC पटना)</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Document Cards (Hindi) -->
+  <section class="w-full py-12 px-6 lg:px-12 bg-surface">
+    <div class="max-w-7xl mx-auto space-y-8">
+      <div class="smf-hi-heading">
+        <span class="smf-eyebrow">केंद्रीय दस्तावेज़ संग्रह</span>
+        <h2>सत्यापित सरकारी प्रमाण पत्र</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Hindi Doc 1 -->
+        <article class="doc-cert-card">
+          <div class="doc-preview-frame" tabindex="0" role="button" aria-label="निगमन प्रमाण पत्र देखें" onclick="openDocModal(0)">
+            <img src="assets/images/documents/doc-roc-incorporation.webp" alt="निगमन प्रमाण पत्र" class="doc-preview-thumb" loading="lazy"/>
+            <div class="doc-preview-overlay">
+              <span class="material-symbols-outlined text-[32px]">zoom_in</span>
+              <span class="doc-preview-btn">बड़ा करके देखें</span>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary/10 text-primary">ROC / MCA</span>
+              <h3 class="font-title-lg text-primary font-bold mt-2">निगमन प्रमाण पत्र (ROC)</h3>
+              <p class="text-sm text-on-surface-variant">कंपनी रजिस्ट्रार, पटना। कंपनी अधिनियम 2013 के अंतर्गत जारी।</p>
+            </div>
+            <div class="pt-3 border-t border-surface-container text-xs space-y-1">
+              <div>CIN: <strong class="font-mono text-primary">U64990BR2025PTC079940</strong></div>
+              <div>पंजीकरण तिथि: <strong class="text-primary">06 नवंबर 2025</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Hindi Doc 2 -->
+        <article class="doc-cert-card">
+          <div class="doc-preview-frame" tabindex="0" role="button" aria-label="उद्यम पंजीकरण प्रमाण पत्र देखें" onclick="openDocModal(1)">
+            <img src="assets/images/documents/doc-udyam-registration.webp" alt="उद्यम पंजीकरण प्रमाण पत्र" class="doc-preview-thumb" loading="lazy"/>
+            <div class="doc-preview-overlay">
+              <span class="material-symbols-outlined text-[32px]">zoom_in</span>
+              <span class="doc-preview-btn">बड़ा करके देखें</span>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-secondary/15 text-secondary">MSME भारत सरकार</span>
+              <h3 class="font-title-lg text-primary font-bold mt-2">उद्यम पंजीकरण प्रमाण पत्र</h3>
+              <p class="text-sm text-on-surface-variant">सूक्ष्म, लघु एवं मध्यम उद्यम मंत्रालय, भारत सरकार द्वारा जारी।</p>
+            </div>
+            <div class="pt-3 border-t border-surface-container text-xs space-y-1">
+              <div>उद्यम संख्या: <strong class="font-mono text-primary">UDYAM-BR-38-0064908</strong></div>
+              <div>इकाई: <strong class="text-primary">सांबर्न माइक्रो फाइनेंस</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Hindi Doc 3 -->
+        <article class="doc-cert-card">
+          <div class="doc-preview-frame" tabindex="0" role="button" aria-label="जीएसटी पंजीकरण प्रमाण पत्र देखें" onclick="openDocModal(2)">
+            <img src="assets/images/documents/doc-gst-registration.webp" alt="जीएसटी प्रमाण पत्र" class="doc-preview-thumb" loading="lazy"/>
+            <div class="doc-preview-overlay">
+              <span class="material-symbols-outlined text-[32px]">zoom_in</span>
+              <span class="doc-preview-btn">बड़ा करके देखें</span>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-primary/10 text-primary">कर पंजीकरण</span>
+              <h3 class="font-title-lg text-primary font-bold mt-2">जीएसटी पंजीकरण प्रमाण पत्र</h3>
+              <p class="text-sm text-on-surface-variant">प्रपत्र GST REG-06, केंद्रीय एवं बिहार वस्तु और सेवा कर अधिनियम।</p>
+            </div>
+            <div class="pt-3 border-t border-surface-container text-xs space-y-1">
+              <div>कार्यक्षेत्र: <strong class="text-primary">बेतिया, पश्चिम चंपारण</strong></div>
+              <div>स्थिति: <strong class="text-secondary">सक्रिय पंजीकृत</strong></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Hindi Doc 4 -->
+        <article class="doc-cert-card">
+          <div class="doc-preview-frame" tabindex="0" role="button" aria-label="पैन कार्ड देखें" onclick="openDocModal(3)">
+            <img src="assets/images/documents/doc-pan-card.webp" alt="पैन कार्ड" class="doc-preview-thumb" loading="lazy"/>
+            <div class="doc-preview-overlay">
+              <span class="material-symbols-outlined text-[32px]">zoom_in</span>
+              <span class="doc-preview-btn">बड़ा करके देखें</span>
+            </div>
+          </div>
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+            <div>
+              <span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-secondary/15 text-secondary">आयकर विभाग</span>
+              <h3 class="font-title-lg text-primary font-bold mt-2">स्थायी खाता संख्या (PAN)</h3>
+              <p class="text-sm text-on-surface-variant">भारत सरकार के आयकर विभाग द्वारा आवंटित कॉर्पोरेट पैन कार्ड।</p>
+            </div>
+            <div class="pt-3 border-t border-surface-container text-xs space-y-1">
+              <div>इकाई प्रकार: <strong class="text-primary">प्राइवेट लिमिटेड कंपनी</strong></div>
+              <div>वैधानिक पहचान: <strong class="text-secondary">कॉर्पोरेट पैन</strong></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Interactive Document Lightbox Modal -->
+<div class="doc-modal" id="docModal" role="dialog" aria-modal="true" aria-hidden="true" onclick="handleModalBackdropClick(event)">
+  <div class="doc-modal-content" onclick="event.stopPropagation()">
+    
+    <div class="doc-modal-header">
+      <div>
+        <h3 id="modalDocTitle">Certificate of Incorporation</h3>
+        <small id="modalDocAuthority">Ministry of Corporate Affairs · ROC Patna</small>
+      </div>
+      <div class="doc-modal-actions">
+        <button type="button" class="doc-modal-btn" onclick="toggleZoom()" aria-label="Toggle zoom">
+          <span class="material-symbols-outlined text-[20px]" id="zoomIcon">zoom_in</span>
+        </button>
+        <button type="button" class="doc-modal-btn" onclick="closeDocModal()" aria-label="Close document preview">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="doc-modal-body" id="modalDocBody">
+      <img src="assets/images/documents/doc-roc-incorporation.webp" alt="Expanded Document Preview" id="modalDocImg" class="doc-modal-img" onclick="toggleZoom()"/>
+    </div>
+
+    <div class="doc-modal-footer">
+      <button type="button" class="doc-nav-btn" onclick="prevDoc()">
+        <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+        <span id="navPrevLabel">Previous</span>
+      </button>
+      <span id="modalDocCounter" class="font-mono text-xs">1 of 4</span>
+      <button type="button" class="doc-nav-btn" onclick="nextDoc()">
+        <span id="navNextLabel">Next</span>
+        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Clean, Modern Site Footer -->
+<footer class="smf-premium-footer" aria-label="Website footer">
+  <div class="smf-foot-top">
+    <div class="smf-foot-shell smf-foot-grid">
+      
+      <!-- Brand & Summary -->
+      <section class="smf-foot-company">
+        <a class="smf-footer-brand" href="index.html">
+          <img src="assets/images/smf-header-symbol.png" alt="SMF company symbol" width="60" height="60" loading="lazy"/>
+          <span><strong>Sambarn</strong><small>MICRO FINANCE PVT. LTD.</small></span>
+        </a>
+        <p class="smf-foot-summary" data-en="Sambarn Micro Finance Private Limited is an Indian private company registered in Bihar. Providing responsible grassroots financial awareness." data-hi="सांबर्न माइक्रो फाइनेंस प्राइवेट लिमिटेड बिहार में पंजीकृत निजी कंपनी है। यह उत्तरदायी वित्तीय जागरूकता को बढ़ावा देती है।">
+          Sambarn Micro Finance Private Limited is an Indian private company registered in Bihar. Providing responsible grassroots financial awareness.
+        </p>
+        <div class="mt-4 pt-3 border-t border-slate-700/40 text-[12px] text-slate-400">
+          <span data-en="Corporate Reg. in Bihar • Non-Government Company" data-hi="बिहार में कॉर्पोरेट पंजीकरण • गैर-सरकारी कंपनी">Corporate Reg. in Bihar • Non-Government Company</span>
+        </div>
+      </section>
+
+      <!-- Explore Links -->
+      <section>
+        <h2 class="smf-foot-heading" data-en="Explore" data-hi="जानकारी देखें">Explore</h2>
+        <ul>
+          <li><a href="index.html" class="smf-f-link" data-en="Home" data-hi="होम">Home</a></li>
+          <li><a href="about.html" class="smf-f-link" data-en="About Us" data-hi="हमारे बारे में">About Us</a></li>
+          <li><a href="our-focus.html" class="smf-f-link" data-en="Our Focus" data-hi="हमारा उद्देश्य">Our Focus</a></li>
+          <li><a href="services.html" class="smf-f-link" data-en="Services" data-hi="सेवाएँ">Services</a></li>
+          <li><a href="leadership.html" class="smf-f-link" data-en="Leadership" data-hi="नेतृत्व">Leadership</a></li>
+          <li><a href="financial-awareness.html" class="smf-f-link" data-en="Financial Awareness" data-hi="वित्तीय जागरूकता">Financial Awareness</a></li>
+          <li><a href="company-documents.html" class="smf-f-link active" data-en="Company Documents" data-hi="कंपनी दस्तावेज़">Company Documents</a></li>
+        </ul>
+      </section>
+
+      <!-- Useful Resources -->
+      <section>
+        <h2 class="smf-foot-heading" data-en="Resources" data-hi="उपयोगी लिंक">Resources</h2>
+        <ul>
+          <li><a href="gallery.html" class="smf-f-link" data-en="Activity Gallery" data-hi="गतिविधि गैलरी">Activity Gallery</a></li>
+          <li><a href="women-entrepreneurship.html" class="smf-f-link" data-en="Women Entrepreneurs" data-hi="महिला उद्यमिता">Women Entrepreneurs</a></li>
+          <li><a href="small-business.html" class="smf-f-link" data-en="Small Business" data-hi="छोटे व्यवसाय">Small Business</a></li>
+          <li><a href="faq.html" class="smf-f-link" data-en="FAQs" data-hi="सामान्य प्रश्न">FAQs</a></li>
+          <li><a href="corporate-disclosures.html" class="smf-f-link" data-en="Corporate Details" data-hi="कॉर्पोरेट विवरण">Corporate Details</a></li>
+          <li><a href="contact.html" class="smf-f-link" data-en="Contact Us" data-hi="संपर्क करें">Contact Us</a></li>
+        </ul>
+      </section>
+
+      <!-- Registered Office & Map Card -->
+      <section>
+        <h2 class="smf-foot-heading" data-en="Registered Office" data-hi="पंजीकृत कार्यालय">Registered Office</h2>
+        <p class="smf-foot-address">Ward No. 24, Deoliya,<br/>Narkatiaganj, Bettiah,<br/>West Champaran, Bihar – 845455</p>
+        
+        <!-- Compact Map Card -->
+        <div class="mt-3 p-3 rounded-lg bg-slate-800/60 border border-slate-700/60 text-xs space-y-2">
+          <div class="flex items-center gap-1.5 text-emerald-400 font-semibold">
+            <span class="material-symbols-outlined text-[16px]">pin_drop</span>
+            <span data-en="Bettiah, West Champaran" data-hi="बेतिया, पश्चिम चंपारण">Bettiah, West Champaran</span>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-1">
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=27.1006187%2C84.4722669" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-medium inline-flex items-center gap-1 transition-colors">
+              <span class="material-symbols-outlined text-[13px]">directions</span>
+              <span data-en="Directions" data-hi="दिशा-निर्देश">Directions</span>
+            </a>
+            <a href="https://www.google.com/maps?q=27.1006187,84.4722669" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded bg-slate-700 hover:bg-slate-600 text-slate-200 inline-flex items-center gap-1 transition-colors">
+              <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+              <span data-en="View Map" data-hi="मैप देखें">View Map</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <div class="smf-foot-lower">
+    <div class="smf-foot-shell smf-foot-lower-inner">
+      <p>© 2026 Sambarn Micro Finance Private Limited. <span data-en="All rights reserved." data-hi="सर्वाधिकार सुरक्षित.">All rights reserved.</span></p>
+      <nav aria-label="Legal links">
+        <a class="smf-f-link" href="privacy.html" data-en="Privacy Policy" data-hi="गोपनीयता नीति">Privacy Policy</a>
+        <a class="smf-f-link" href="terms.html" data-en="Terms" data-hi="शर्तें">Terms</a>
+        <a class="smf-f-link" href="disclaimer.html" data-en="Disclaimer" data-hi="अस्वीकरण">Disclaimer</a>
+        <a class="smf-f-link" href="company-documents.html" data-en="Company Documents" data-hi="कंपनी दस्तावेज़">Company Documents</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- Document Lightbox JavaScript -->
+<script>
+  (function () {
+    const docs = [
+      {
+        src: 'assets/images/documents/doc-roc-incorporation.webp',
+        titleEn: 'Certificate of Incorporation',
+        titleHi: 'निगमन प्रमाण पत्र (ROC पटना)',
+        authorityEn: 'Ministry of Corporate Affairs · Registrar of Companies, Patna (CIN: U64990BR2025PTC079940)',
+        authorityHi: 'कॉर्पोरेट कार्य मंत्रालय · कंपनी रजिस्ट्रार, पटना (CIN: U64990BR2025PTC079940)'
+      },
+      {
+        src: 'assets/images/documents/doc-udyam-registration.webp',
+        titleEn: 'Udyam Registration Certificate',
+        titleHi: 'उद्यम पंजीकरण प्रमाण पत्र (MSME)',
+        authorityEn: 'Ministry of Micro, Small and Medium Enterprises · UDYAM-BR-38-0064908',
+        authorityHi: 'सूक्ष्म, लघु एवं मध्यम उद्यम मंत्रालय, भारत सरकार · UDYAM-BR-38-0064908'
+      },
+      {
+        src: 'assets/images/documents/doc-gst-registration.webp',
+        titleEn: 'GST Registration Certificate (Form GST REG-06)',
+        titleHi: 'जीएसटी पंजीकरण प्रमाण पत्र (Form GST REG-06)',
+        authorityEn: 'Government of India · Commercial Taxes Department, Bihar (Bettiah Jurisdiction)',
+        authorityHi: 'भारत सरकार · वाणिज्य कर विभाग, बिहार (बेतिया कार्यक्षेत्र)'
+      },
+      {
+        src: 'assets/images/documents/doc-pan-card.webp',
+        titleEn: 'Permanent Account Number (PAN Card)',
+        titleHi: 'स्थायी खाता संख्या (कॉर्पोरेट पैन कार्ड)',
+        authorityEn: 'Income Tax Department · Government of India (Sambarn Micro Finance Pvt. Ltd.)',
+        authorityHi: 'आयकर विभाग · भारत सरकार (सांबर्न माइक्रो फाइनेंस प्राइवेट लिमिटेड)'
+      }
+    ];
+
+    let currentIdx = 0;
+    const modal = document.getElementById('docModal');
+    const modalImg = document.getElementById('modalDocImg');
+    const modalTitle = document.getElementById('modalDocTitle');
+    const modalAuth = document.getElementById('modalDocAuthority');
+    const modalCounter = document.getElementById('modalDocCounter');
+    const zoomIcon = document.getElementById('zoomIcon');
+
+    function isHindi() {
+      return document.documentElement.lang === 'hi' || localStorage.getItem('smf-preferred-language') === 'hi';
+    }
+
+    window.openDocModal = function (idx) {
+      currentIdx = (idx + docs.length) % docs.length;
+      const d = docs[currentIdx];
+      const hi = isHindi();
+      
+      modalImg.src = d.src;
+      modalImg.classList.remove('is-zoomed');
+      zoomIcon.textContent = 'zoom_in';
+      modalTitle.textContent = hi ? d.titleHi : d.titleEn;
+      modalAuth.textContent = hi ? d.authorityHi : d.authorityEn;
+      modalCounter.textContent = (currentIdx + 1) + ' of ' + docs.length;
+
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    window.closeDocModal = function () {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      modalImg.classList.remove('is-zoomed');
+    };
+
+    window.toggleZoom = function () {
+      modalImg.classList.toggle('is-zoomed');
+      zoomIcon.textContent = modalImg.classList.contains('is-zoomed') ? 'zoom_out' : 'zoom_in';
+    };
+
+    window.prevDoc = function () {
+      openDocModal(currentIdx - 1);
+    };
+
+    window.nextDoc = function () {
+      openDocModal(currentIdx + 1);
+    };
+
+    window.handleModalBackdropClick = function (e) {
+      if (e.target === modal || e.target.id === 'modalDocBody') {
+        closeDocModal();
+      }
+    };
+
+    document.addEventListener('keydown', function (e) {
+      if (!modal.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeDocModal();
+      else if (e.key === 'ArrowLeft') prevDoc();
+      else if (e.key === 'ArrowRight') nextDoc();
+    });
+  })();
+</script>
+
+<script defer src="assets/js/site.js"></script>
+<script defer src="assets/js/smf-header.js"></script>
+<script defer src="assets/js/smf-bilingual.js"></script>
+</body>
+</html>

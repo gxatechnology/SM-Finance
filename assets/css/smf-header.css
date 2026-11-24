@@ -42,10 +42,13 @@
 .smf-site-header .smf-nav-item:focus-visible,
 .smf-site-header a:focus-visible,.smf-site-header button:focus-visible{outline:3px solid #81c69f;outline-offset:3px}
 .smf-site-header .smf-more-menu{
-  position:absolute;top:calc(100% + 6px);right:0;min-width:240px;
+  position:absolute;top:calc(100% + 4px);right:0;min-width:240px;
   background:#fff;border:1px solid #e0e9f0;border-radius:12px;
   padding:8px;display:flex;flex-direction:column;
   box-shadow:0 14px 35px rgba(4,29,55,.14);z-index:2000;
+}
+.smf-site-header .smf-more-menu::before{
+  content:"";position:absolute;top:-12px;left:0;right:0;height:12px;display:block;
 }
 .smf-site-header .smf-more-item{
   display:block;padding:11px 13px;border-radius:7px;
