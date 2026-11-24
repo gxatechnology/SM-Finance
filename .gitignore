@@ -5,6 +5,8 @@
 
 # 1. Customer Activity Photographs (Pending Written Consent under DPDP Act 2023)
 assets/images/client/company-activities-*.webp
+gallery-review.html
+gallery-internal*.html
 
 # 2. Private Data, Credentials, Tokens & Inquiry Logs
 private/setup-token.txt
@@ -16,11 +18,14 @@ private/backend_test_results.json
 # 3. Build & Release Staging Artifacts
 dist_public_release/
 audit_screenshots/
+scratch/
 *.log
 
 # 4. Internal Audit & Compliance Reports
 SMF_FINAL_RELEASE_AUDIT.md
 SMF_FINAL_UPDATE_REPORT.md
+SMF_CUSTOMER_GALLERY_QA_REPORT.md
+SMF_PRODUCTION_DEPLOYMENT_READINESS.md
 
 # 5. Backup Archives & Temporary Files
 *_backup_*

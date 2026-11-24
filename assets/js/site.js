@@ -21,12 +21,17 @@
   // Existing Stitch calculator and FAQ scripts are retained where they illustrate general education only.
   // They do not quote actual company lending terms.
 
-  // Graceful fallback for unapproved or withheld field photography
+  // Safe handling for withheld customer photography — hide card rather than showing duplicate logo placeholders
   window.addEventListener('error', function(event) {
     var target = event.target;
     if (target && target.tagName === 'IMG' && target.src && target.src.indexOf('company-activities-') !== -1) {
       target.onerror = null;
-      target.src = 'assets/images/client/smf-og-image.webp';
+      var card = target.closest('.smf-gallery-card') || target.closest('.smf-preview-card');
+      if (card) {
+        card.style.display = 'none';
+      } else {
+        target.style.display = 'none';
+      }
     }
   }, true);
 })();
