@@ -29,7 +29,11 @@ SMF_FINAL_UPDATE_REPORT.md
 *.swp
 *~
 
-# 6. Operating System & Editor Metadata
+# 6. Unapproved Document Annexures (Personal Director Photos & Internal Filing Details)
+assets/images/documents/doc-gst-page-2.webp
+assets/images/documents/doc-gst-page-3.webp
+
+# 7. Operating System & Editor Metadata
 .DS_Store
 Thumbs.db
 desktop.ini
