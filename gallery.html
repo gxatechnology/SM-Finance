@@ -1,6 +1,80 @@
 <!DOCTYPE html>
 <html lang="en"><head><title>Activity Gallery | Sambarn Micro Finance Private Limited</title><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
 /* SMF Enhanced Gallery & Lightbox Styles */
+.text-white { color: #ffffff !important; }
+
+/* Native Mobile-Style Photo Gallery Masonry */
+.smf-photo-grid {
+  column-count: 2;
+  column-gap: 8px;
+}
+@media (min-width: 640px) {
+  .smf-photo-grid {
+    column-count: 3;
+    column-gap: 10px;
+  }
+}
+@media (min-width: 1024px) {
+  .smf-photo-grid {
+    column-count: 4;
+    column-gap: 12px;
+  }
+}
+.smf-photo-item {
+  break-inside: avoid;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0f172a15;
+  position: relative;
+  cursor: pointer;
+  display: block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+@media (min-width: 640px) {
+  .smf-photo-item {
+    margin-bottom: 10px;
+    border-radius: 12px;
+  }
+}
+@media (min-width: 1024px) {
+  .smf-photo-item {
+    margin-bottom: 12px;
+    border-radius: 14px;
+  }
+}
+.smf-photo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(8, 44, 83, 0.18);
+}
+.smf-photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  vertical-align: middle;
+}
+.smf-photo-item .zoom-hint {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 20, 39, 0.25);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.smf-photo-item:hover .zoom-hint {
+  opacity: 1;
+}
+.zoom-hint svg {
+  width: 32px;
+  height: 32px;
+  fill: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
 
 .smf-card-img-wrap {
   position: relative;
@@ -47,17 +121,17 @@
 }
 .smf-lightbox-dialog {
   position: relative;
-  width: 95vw;
-  max-width: 1200px;
-  height: 92vh;
-  max-height: 900px;
+  width: 96vw;
+  max-width: 1300px;
+  height: 94vh;
+  max-height: 950px;
   display: flex;
   flex-direction: column;
-  background: #08203d;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #030f1e;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85);
 }
 
 .smf-lightbox-header {
@@ -201,23 +275,7 @@
   transform-origin: center center;
   pointer-events: auto;
 }
-.smf-lightbox-footer {
-  padding: 14px 20px;
-  background: #ffffff;
-  border-top: 1px solid #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex-shrink: 0;
-  color: #0f172a;
-}
-@media (min-width: 640px) {
-  .smf-lightbox-footer {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
+
 .smf-lightbox-nav {
   position: absolute;
   top: 50%;
@@ -313,1081 +371,200 @@
   </nav>
 </header>
 
-<main class="w-full bg-surface" data-language="en" id="smfEnglishMain">
-<!-- Gallery Hero Section -->
-<section class="relative w-full overflow-hidden bg-primary text-on-primary py-16 lg:py-24 px-6 lg:px-12">
-<div class="max-w-7xl mx-auto flex flex-col gap-6">
-<div class="flex flex-wrap items-center gap-3">
-<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest/10 backdrop-blur-md text-tertiary-fixed font-label-md text-label-md tracking-wider uppercase">
-<span class="w-2 h-2 rounded-full bg-tertiary-fixed animate-pulse"></span>
-Field Documentation &amp; Local Assemblies
-</span>
-</div>
-<div class="max-w-3xl space-y-4">
-<h1 class="font-display-hero text-headline-lg lg:text-display-hero text-on-primary tracking-tight font-bold">
-Customer Interactions &amp; <br/><span class="text-secondary-fixed-dim">Field Activities.</span>
-</h1>
-<p class="font-body-lg text-body-lg text-on-primary-container leading-relaxed">
-Authentic photographic records of community visits, document handovers, and grassroots interactions across West Champaran, Bihar. Each caption reflects visible events and neutral documentation.
-</p>
-<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/90 text-xs font-medium border border-white/15">
-<span class="material-symbols-outlined text-[16px] text-tertiary-fixed">photo_camera</span>
-Photographic records of community meetings and member interactions in West Champaran, Bihar.
-</div>
-</div>
-</div>
-</section>
-<!-- Category A: Customer Handover Moments -->
-<section class="w-full py-12 lg:py-16 px-6 lg:px-12 bg-surface">
-<div class="max-w-7xl mx-auto space-y-8">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-surface-container">
-<div>
-<div class="inline-flex items-center gap-2 text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold">
-<span class="w-2 h-2 rounded-full bg-secondary"></span> Member Interactions
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Customer Handover Moments</h2>
-<p class="text-on-surface-variant text-body-sm max-w-2xl mt-1">Direct documentation exchanges, acknowledgment slips, and customer interactions at local branch centers.</p>
-</div>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Document Handover Session — West Champaran" data-photo-index="0">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-03.webp" alt="Document Handover Session — West Champaran — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 38%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
+<main class="w-full bg-surface pt-6 sm:pt-8 lg:pt-10" data-language="en" id="smfEnglishMain">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mb-6 sm:mb-8 text-center sm:text-left">
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight font-display">Photo Gallery</h1>
   </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Document Handover Session — West Champaran</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Community member and branch representative during an official document handover in Bettiah, Bihar.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Customer Interaction & Handover" data-photo-index="1">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-04.webp" alt="Customer Interaction & Handover — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Customer Interaction & Handover</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Direct member interaction and document handover at West Champaran branch.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Member Verification & Handover" data-photo-index="2">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-05.webp" alt="Member Verification & Handover — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Member Verification & Handover</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Document exchange and member verification session at local field center.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-16">
+    <div class="smf-photo-grid">
+      <div class="smf-photo-item" data-photo-index="0" role="button" tabindex="0" aria-label="Photo 1">
+        <img src="assets/images/client/company-activities-04.webp" alt="Sambarn Activity Photo 1" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="1" role="button" tabindex="0" aria-label="Photo 2">
+        <img src="assets/images/client/company-activities-03.webp" alt="Sambarn Activity Photo 2" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="2" role="button" tabindex="0" aria-label="Photo 3">
+        <img src="assets/images/client/company-activities-02.webp" alt="Sambarn Activity Photo 3" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="3" role="button" tabindex="0" aria-label="Photo 4">
+        <img src="assets/images/client/company-activities-06.webp" alt="Sambarn Activity Photo 4" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="4" role="button" tabindex="0" aria-label="Photo 5">
+        <img src="assets/images/client/company-activities-05.webp" alt="Sambarn Activity Photo 5" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="5" role="button" tabindex="0" aria-label="Photo 6">
+        <img src="assets/images/client/company-activities-07.webp" alt="Sambarn Activity Photo 6" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="6" role="button" tabindex="0" aria-label="Photo 7">
+        <img src="assets/images/client/company-activities-08.webp" alt="Sambarn Activity Photo 7" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="7" role="button" tabindex="0" aria-label="Photo 8">
+        <img src="assets/images/client/company-activities-11.webp" alt="Sambarn Activity Photo 8" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="8" role="button" tabindex="0" aria-label="Photo 9">
+        <img src="assets/images/client/company-activities-09.webp" alt="Sambarn Activity Photo 9" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="9" role="button" tabindex="0" aria-label="Photo 10">
+        <img src="assets/images/client/company-activities-10.webp" alt="Sambarn Activity Photo 10" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="10" role="button" tabindex="0" aria-label="Photo 11">
+        <img src="assets/images/client/company-activities-15.webp" alt="Sambarn Activity Photo 11" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="11" role="button" tabindex="0" aria-label="Photo 12">
+        <img src="assets/images/client/company-activities-12.webp" alt="Sambarn Activity Photo 12" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="12" role="button" tabindex="0" aria-label="Photo 13">
+        <img src="assets/images/client/company-activities-16.webp" alt="Sambarn Activity Photo 13" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="13" role="button" tabindex="0" aria-label="Photo 14">
+        <img src="assets/images/client/company-activities-13.webp" alt="Sambarn Activity Photo 14" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="14" role="button" tabindex="0" aria-label="Photo 15">
+        <img src="assets/images/client/company-activities-14.webp" alt="Sambarn Activity Photo 15" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="15" role="button" tabindex="0" aria-label="Photo 16">
+        <img src="assets/images/client/company-activities-01.webp" alt="Sambarn Activity Photo 16" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="16" role="button" tabindex="0" aria-label="Photo 17">
+        <img src="assets/images/client/company-activities-17.webp" alt="Sambarn Activity Photo 17" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="17" role="button" tabindex="0" aria-label="Photo 18">
+        <img src="assets/images/client/company-activities-18.webp" alt="Sambarn Activity Photo 18" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="18" role="button" tabindex="0" aria-label="Photo 19">
+        <img src="assets/images/client/company-activities-19.webp" alt="Sambarn Activity Photo 19" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="19" role="button" tabindex="0" aria-label="Photo 20">
+        <img src="assets/images/client/company-activities-20.webp" alt="Sambarn Activity Photo 20" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="20" role="button" tabindex="0" aria-label="Photo 21">
+        <img src="assets/images/client/company-activities-21.webp" alt="Sambarn Activity Photo 21" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="21" role="button" tabindex="0" aria-label="Photo 22">
+        <img src="assets/images/client/company-activities-22.webp" alt="Sambarn Activity Photo 22" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
     </div>
   </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Official Acknowledgment Handover" data-photo-index="3">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-08.webp" alt="Official Acknowledgment Handover — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Official Acknowledgment Handover</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Official acknowledgment and documentation handover in local center.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Documentation Exchange with Member" data-photo-index="4">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-09.webp" alt="Documentation Exchange with Member — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 25%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Documentation Exchange with Member</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Direct interaction and acknowledgment slip exchange with community member.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Branch Center Interaction" data-photo-index="5">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-10.webp" alt="Branch Center Interaction — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 25%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Branch Center Interaction</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Official slip handover session at branch customer desk.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Member Handover at Field Center" data-photo-index="6">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-12.webp" alt="Member Handover at Field Center — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 30%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Member Handover at Field Center</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Center interaction and document verification with member.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Official Slip Handover" data-photo-index="7">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-13.webp" alt="Official Slip Handover — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 30%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Official Slip Handover</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Representative and customer during formal slip exchange.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Member Verification & Handover" data-photo-index="8">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-14.webp" alt="Member Verification & Handover — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 25%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Member Verification & Handover</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Member handover session with visible center banner.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Field Center Documentation Exchange" data-photo-index="9">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-17.webp" alt="Field Center Documentation Exchange — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Field Center Documentation Exchange</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Document acknowledgment handover at field service point.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Handover Session & Member Interaction" data-photo-index="10">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-18.webp" alt="Handover Session & Member Interaction — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Handover Session & Member Interaction</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Formal interaction and document exchange at branch office.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Direct Acknowledgment Handover" data-photo-index="11">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-19.webp" alt="Direct Acknowledgment Handover — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Direct Acknowledgment Handover</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Center representative and member during document exchange.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Member Engagement & Formal Exchange" data-photo-index="12">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-20.webp" alt="Member Engagement & Formal Exchange — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Member Engagement & Formal Exchange</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Document handover session in West Champaran center.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Late Afternoon Documentation Handover" data-photo-index="13">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-21.webp" alt="Late Afternoon Documentation Handover — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 20%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Late Afternoon Documentation Handover</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Member handover session at village field point.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Member Verification & Closing Handover" data-photo-index="14">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-22.webp" alt="Member Verification & Closing Handover — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 20%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Member Verification & Closing Handover</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Concluding handover interaction at field desk.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-<!-- Category B: Group & Community Moments -->
-<section class="w-full py-12 lg:py-16 px-6 lg:px-12 bg-surface-container-lowest border-y border-outline-variant/15">
-<div class="max-w-7xl mx-auto space-y-8">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-surface-container">
-<div>
-<div class="inline-flex items-center gap-2 text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold">
-<span class="w-2 h-2 rounded-full bg-secondary"></span> Community Outreach
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Group &amp; Community Moments</h2>
-<p class="text-on-surface-variant text-body-sm max-w-2xl mt-1">Village courtyard assemblies, neighborhood gatherings, and open community discussions across West Champaran.</p>
-</div>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Courtyard Community Meeting" data-photo-index="15">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-06.webp" alt="Courtyard Community Meeting — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Community</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Courtyard Community Meeting</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Open-air village assembly discussing transparent practices with local women.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Group Interaction & Outreach" data-photo-index="16">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-07.webp" alt="Group Interaction & Outreach — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Community</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Group Interaction & Outreach</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Community meeting session in rural West Champaran courtyard.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Village Open-Air Assembly" data-photo-index="17">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-11.webp" alt="Village Open-Air Assembly — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Community</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Village Open-Air Assembly</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Outdoor community gathering with village participants and field coordinators.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Neighborhood Group Assembly" data-photo-index="18">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-15.webp" alt="Neighborhood Group Assembly — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Community</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Neighborhood Group Assembly</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Village community gathering in rural residential lane.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Community Assembly Discussion" data-photo-index="19">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-16.webp" alt="Community Assembly Discussion — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Community</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Community Assembly Discussion</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Direct outreach and transparent discussion with local residents.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-<!-- Category C: Field Visits & Engagement -->
-<section class="w-full py-12 lg:py-16 px-6 lg:px-12 bg-surface">
-<div class="max-w-7xl mx-auto space-y-8">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-surface-container">
-<div>
-<div class="inline-flex items-center gap-2 text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold">
-<span class="w-2 h-2 rounded-full bg-secondary"></span> Field Presence
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">Field Visits &amp; Engagement</h2>
-<p class="text-on-surface-variant text-body-sm max-w-2xl mt-1">Grassroots community assemblies and field coordinator outreach across rural West Champaran.</p>
-</div>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Community Center Engagement" data-photo-index="20">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-01.webp" alt="Community Center Engagement — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Field Visit</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Community Center Engagement</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Indoor community room gathering with women self-reliance group participants.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="Rural Field Outreach" data-photo-index="21">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-02.webp" alt="Rural Field Outreach — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 30%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> View Full Photo
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Field Visit</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">Rural Field Outreach</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Field outreach coordinator during an active village visit and community engagement.</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>West Champaran</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">Click to expand ↗</span>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
 </main>
 
-<main class="smf-hi-main" dir="auto" hidden="" id="smfHindiMain">
-<!-- Hindi Gallery Hero Section -->
-<section class="smf-hi-hero">
-<div class="smf-content-shell smf-hi-hero-grid">
-<div class="smf-hi-hero-copy">
-<div class="smf-eyebrow">क्षेत्रीय गतिविधि अभिलेख • प्रामाणिक छायाचित्र संकलन</div>
-<h1>ग्राहक सहभागिता एवं फील्ड गतिविधियाँ</h1>
-<p>बिहार के पश्चिम चंपारण जिले में आयोजित ग्राहक संवाद, दस्तावेज़ हस्तांतरण एवं सामुदायिक बैठकों का प्रामाणिक छायाचित्र संकलन। समस्त विवरण केवल दृश्य तथ्यों पर आधारित हैं।</p>
-<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium border border-primary/20 mb-4">
-<span class="material-symbols-outlined text-[16px] text-secondary">photo_camera</span>
-पश्चिम चंपारण, बिहार में आयोजित बैठकों एवं सदस्य संवाद के प्रामाणिक छायाचित्र।
-</div>
-<div class="smf-hi-actions">
-<a class="smf-hi-cta" href="contact.html">पूछताछ भेजें ↗</a>
-<a class="smf-hi-outline" href="index.html">होमपेज पर जाएँ</a>
-</div>
-</div>
-<div class="smf-hi-hero-image">
-<img alt="कंपनी की ग्रामीण गतिविधि" loading="lazy" src="assets/images/client/company-activities-01.webp"/>
-<small>चित्र: बिहार में ग्रामीण सामुदायिक सभा का दृश्य</small>
-</div>
-</div>
-</section>
-<!-- Category A (Hindi) -->
-<section class="w-full py-12 lg:py-16 px-6 lg:px-12 bg-surface">
-<div class="max-w-7xl mx-auto space-y-8">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-surface-container">
-<div>
-<div class="inline-flex items-center gap-2 text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold">
-<span class="w-2 h-2 rounded-full bg-secondary"></span> सदस्य संवाद
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">ग्राहक दस्तावेज़ हस्तांतरण के अवसर</h2>
-<p class="text-on-surface-variant text-body-sm max-w-2xl mt-1">स्थानीय केंद्रों पर प्रत्यक्ष प्रपत्र विनिमय, आधिकारिक पावती एवं सदस्य संवाद के दृश्य।</p>
-</div>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="दस्तावेज़ हस्तांतरण सत्र — पश्चिम चंपारण" data-photo-index="0">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-03.webp" alt="दस्तावेज़ हस्तांतरण सत्र — पश्चिम चंपारण — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 38%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
+<main class="smf-hi-main w-full bg-surface pt-6 sm:pt-8 lg:pt-10" dir="auto" hidden="" id="smfHindiMain">
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 mb-6 sm:mb-8 text-center sm:text-left">
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary tracking-tight font-display">फोटो गैलरी</h1>
   </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">दस्तावेज़ हस्तांतरण सत्र — पश्चिम चंपारण</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">बेतिया, बिहार में आधिकारिक दस्तावेज़ विनिमय एवं सदस्य संवाद का दृश्य।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="ग्राहक संवाद एवं दस्तावेज़ प्राप्ति" data-photo-index="1">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-04.webp" alt="ग्राहक संवाद एवं दस्तावेज़ प्राप्ति — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">ग्राहक संवाद एवं दस्तावेज़ प्राप्ति</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">पश्चिम चंपारण शाखा में सदस्य सहभागिता एवं औपचारिक दस्तावेज़ हस्तांतरण।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="सदस्य सत्यापन एवं दस्तावेज़ प्राप्ति" data-photo-index="2">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-05.webp" alt="सदस्य सत्यापन एवं दस्तावेज़ प्राप्ति — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">सदस्य सत्यापन एवं दस्तावेज़ प्राप्ति</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">स्थानीय केंद्र पर सदस्य सत्यापन एवं आधिकारिक प्रपत्र विनिमय।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pb-16">
+    <div class="smf-photo-grid">
+      <div class="smf-photo-item" data-photo-index="0" role="button" tabindex="0" aria-label="छायाचित्र 1">
+        <img src="assets/images/client/company-activities-04.webp" alt="संबरन गतिविधि छायाचित्र 1" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="1" role="button" tabindex="0" aria-label="छायाचित्र 2">
+        <img src="assets/images/client/company-activities-03.webp" alt="संबरन गतिविधि छायाचित्र 2" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="2" role="button" tabindex="0" aria-label="छायाचित्र 3">
+        <img src="assets/images/client/company-activities-02.webp" alt="संबरन गतिविधि छायाचित्र 3" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="3" role="button" tabindex="0" aria-label="छायाचित्र 4">
+        <img src="assets/images/client/company-activities-06.webp" alt="संबरन गतिविधि छायाचित्र 4" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="4" role="button" tabindex="0" aria-label="छायाचित्र 5">
+        <img src="assets/images/client/company-activities-05.webp" alt="संबरन गतिविधि छायाचित्र 5" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="5" role="button" tabindex="0" aria-label="छायाचित्र 6">
+        <img src="assets/images/client/company-activities-07.webp" alt="संबरन गतिविधि छायाचित्र 6" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="6" role="button" tabindex="0" aria-label="छायाचित्र 7">
+        <img src="assets/images/client/company-activities-08.webp" alt="संबरन गतिविधि छायाचित्र 7" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="7" role="button" tabindex="0" aria-label="छायाचित्र 8">
+        <img src="assets/images/client/company-activities-11.webp" alt="संबरन गतिविधि छायाचित्र 8" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="8" role="button" tabindex="0" aria-label="छायाचित्र 9">
+        <img src="assets/images/client/company-activities-09.webp" alt="संबरन गतिविधि छायाचित्र 9" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="9" role="button" tabindex="0" aria-label="छायाचित्र 10">
+        <img src="assets/images/client/company-activities-10.webp" alt="संबरन गतिविधि छायाचित्र 10" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="10" role="button" tabindex="0" aria-label="छायाचित्र 11">
+        <img src="assets/images/client/company-activities-15.webp" alt="संबरन गतिविधि छायाचित्र 11" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="11" role="button" tabindex="0" aria-label="छायाचित्र 12">
+        <img src="assets/images/client/company-activities-12.webp" alt="संबरन गतिविधि छायाचित्र 12" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="12" role="button" tabindex="0" aria-label="छायाचित्र 13">
+        <img src="assets/images/client/company-activities-16.webp" alt="संबरन गतिविधि छायाचित्र 13" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="13" role="button" tabindex="0" aria-label="छायाचित्र 14">
+        <img src="assets/images/client/company-activities-13.webp" alt="संबरन गतिविधि छायाचित्र 14" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="14" role="button" tabindex="0" aria-label="छायाचित्र 15">
+        <img src="assets/images/client/company-activities-14.webp" alt="संबरन गतिविधि छायाचित्र 15" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="15" role="button" tabindex="0" aria-label="छायाचित्र 16">
+        <img src="assets/images/client/company-activities-01.webp" alt="संबरन गतिविधि छायाचित्र 16" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="16" role="button" tabindex="0" aria-label="छायाचित्र 17">
+        <img src="assets/images/client/company-activities-17.webp" alt="संबरन गतिविधि छायाचित्र 17" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="17" role="button" tabindex="0" aria-label="छायाचित्र 18">
+        <img src="assets/images/client/company-activities-18.webp" alt="संबरन गतिविधि छायाचित्र 18" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="18" role="button" tabindex="0" aria-label="छायाचित्र 19">
+        <img src="assets/images/client/company-activities-19.webp" alt="संबरन गतिविधि छायाचित्र 19" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="19" role="button" tabindex="0" aria-label="छायाचित्र 20">
+        <img src="assets/images/client/company-activities-20.webp" alt="संबरन गतिविधि छायाचित्र 20" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="20" role="button" tabindex="0" aria-label="छायाचित्र 21">
+        <img src="assets/images/client/company-activities-21.webp" alt="संबरन गतिविधि छायाचित्र 21" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
+      <div class="smf-photo-item" data-photo-index="21" role="button" tabindex="0" aria-label="छायाचित्र 22">
+        <img src="assets/images/client/company-activities-22.webp" alt="संबरन गतिविधि छायाचित्र 22" loading="lazy" decoding="async"/>
+        <div class="zoom-hint"><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM10 9H8v1H7V9H5V8h2V6h1v2h2v1z"/></svg></div>
+      </div>
     </div>
   </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="आधिकारिक पावती एवं हस्तांतरण" data-photo-index="3">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-08.webp" alt="आधिकारिक पावती एवं हस्तांतरण — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">आधिकारिक पावती एवं हस्तांतरण</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">स्थानीय केंद्र पर आधिकारिक पावती एवं दस्तावेज़ विनिमय सत्र।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="सदस्य के साथ प्रपत्र विनिमय" data-photo-index="4">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-09.webp" alt="सदस्य के साथ प्रपत्र विनिमय — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 25%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">सदस्य के साथ प्रपत्र विनिमय</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">ग्रामीण सदस्य के साथ पावती पर्ची का औपचारिक आदान-प्रदान।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="शाखा केंद्र संवाद एवं पावती" data-photo-index="5">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-10.webp" alt="शाखा केंद्र संवाद एवं पावती — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 25%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">शाखा केंद्र संवाद एवं पावती</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">शाखा काउंटर पर सदस्य संवाद एवं पावती रसीद हस्तांतरण।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="क्षेत्रीय केंद्र पर सदस्य संवाद" data-photo-index="6">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-12.webp" alt="क्षेत्रीय केंद्र पर सदस्य संवाद — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 30%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">क्षेत्रीय केंद्र पर सदस्य संवाद</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">फील्ड सेवा केंद्र पर सदस्य के साथ दस्तावेज़ सत्यापन सत्र।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="औपचारिक प्रपत्र हस्तांतरण सत्र" data-photo-index="7">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-13.webp" alt="औपचारिक प्रपत्र हस्तांतरण सत्र — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 30%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">औपचारिक प्रपत्र हस्तांतरण सत्र</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">संस्था प्रतिनिधि एवं सदस्य के मध्य औपचारिक प्रपत्र विनिमय।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="सदस्य सत्यापन एवं दस्तावेज़ प्राप्ति" data-photo-index="8">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-14.webp" alt="सदस्य सत्यापन एवं दस्तावेज़ प्राप्ति — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 25%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">सदस्य सत्यापन एवं दस्तावेज़ प्राप्ति</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">संस्था बैनर के समक्ष सदस्य सहभागिता एवं पावती विनिमय।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="क्षेत्रीय केंद्र में दस्तावेज़ विनिमय" data-photo-index="9">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-17.webp" alt="क्षेत्रीय केंद्र में दस्तावेज़ विनिमय — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">क्षेत्रीय केंद्र में दस्तावेज़ विनिमय</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">स्थानीय सेवा केंद्र पर प्रपत्र पावती एवं सदस्य संवाद सत्र।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="हस्तांतरण सत्र एवं सदस्य सहभागिता" data-photo-index="10">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-18.webp" alt="हस्तांतरण सत्र एवं सदस्य सहभागिता — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">हस्तांतरण सत्र एवं सदस्य सहभागिता</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">शाखा कार्यालय में औपचारिक संवाद एवं दस्तावेज़ विनिमय।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="प्रत्यक्ष पावती एवं प्रपत्र हस्तांतरण" data-photo-index="11">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-19.webp" alt="प्रत्यक्ष पावती एवं प्रपत्र हस्तांतरण — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">प्रत्यक्ष पावती एवं प्रपत्र हस्तांतरण</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">केंद्र प्रतिनिधि एवं सदस्य के मध्य प्रत्यक्ष पावती हस्तांतरण।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="सदस्य संवाद एवं औपचारिक विनिमय" data-photo-index="12">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-20.webp" alt="सदस्य संवाद एवं औपचारिक विनिमय — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 28%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">सदस्य संवाद एवं औपचारिक विनिमय</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">पश्चिम चंपारण केंद्र पर दस्तावेज़ हस्तांतरण एवं सदस्य संवाद।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="अपराह्न कालीन दस्तावेज़ हस्तांतरण" data-photo-index="13">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-21.webp" alt="अपराह्न कालीन दस्तावेज़ हस्तांतरण — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 20%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">अपराह्न कालीन दस्तावेज़ हस्तांतरण</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">ग्रामीण फील्ड स्थल पर सदस्य सहभागिता एवं प्रपत्र विनिमय।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="सदस्य सत्यापन एवं समापन सत्र" data-photo-index="14">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-22.webp" alt="सदस्य सत्यापन एवं समापन सत्र — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 20%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">हस्तांतरण</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">सदस्य सत्यापन एवं समापन सत्र</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">फील्ड सेवा स्थल पर औपचारिक प्रपत्र हस्तांतरण सत्र।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-<!-- Category B (Hindi) -->
-<section class="w-full py-12 lg:py-16 px-6 lg:px-12 bg-surface-container-lowest border-y border-outline-variant/15">
-<div class="max-w-7xl mx-auto space-y-8">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-surface-container">
-<div>
-<div class="inline-flex items-center gap-2 text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold">
-<span class="w-2 h-2 rounded-full bg-secondary"></span> सामुदायिक पहल
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">समूह एवं सामुदायिक गतिविधियाँ</h2>
-<p class="text-on-surface-variant text-body-sm max-w-2xl mt-1">पश्चिम चंपारण के ग्रामीण क्षेत्रों में खुले आवासीय प्रांगण की ग्राम सभाएँ एवं सामूहिक संवाद सत्र।</p>
-</div>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="ग्रामीण प्रांगण सभा" data-photo-index="15">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-06.webp" alt="ग्रामीण प्रांगण सभा — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">सामुदायिक</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">ग्रामीण प्रांगण सभा</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">गाँव की चौपाल में महिलाओं के साथ आयोजित खुली बैठक।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="सामुदायिक संवाद एवं संपर्क" data-photo-index="16">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-07.webp" alt="सामुदायिक संवाद एवं संपर्क — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">सामुदायिक</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">सामुदायिक संवाद एवं संपर्क</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">पश्चिम चंपारण के ग्रामीण प्रांगण में सामूहिक बैठक का दृश्य।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="ग्रामीण खुली सभा एवं संवाद सत्र" data-photo-index="17">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-11.webp" alt="ग्रामीण खुली सभा एवं संवाद सत्र — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">सामुदायिक</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">ग्रामीण खुली सभा एवं संवाद सत्र</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">ग्रामीण निवासियों एवं फील्ड समन्वयकों के साथ खुली परिचर्चा।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="मोहल्ला समूह सभा" data-photo-index="18">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-15.webp" alt="मोहल्ला समूह सभा — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">सामुदायिक</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">मोहल्ला समूह सभा</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">ग्रामीण आवासीय क्षेत्र में आयोजित स्थानीय समूह परिचर्चा।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="सामुदायिक संवाद एवं सामूहिक विमर्श" data-photo-index="19">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-16.webp" alt="सामुदायिक संवाद एवं सामूहिक विमर्श — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">सामुदायिक</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">सामुदायिक संवाद एवं सामूहिक विमर्श</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">स्थानीय निवासियों के साथ प्रत्यक्ष संपर्क एवं परिचर्चा सत्र।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-<!-- Category C (Hindi) -->
-<section class="w-full py-12 lg:py-16 px-6 lg:px-12 bg-surface">
-<div class="max-w-7xl mx-auto space-y-8">
-<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-surface-container">
-<div>
-<div class="inline-flex items-center gap-2 text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold">
-<span class="w-2 h-2 rounded-full bg-secondary"></span> क्षेत्रीय संपर्क
-</div>
-<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-1">फील्ड विज़िट एवं सहभागिता</h2>
-<p class="text-on-surface-variant text-body-sm max-w-2xl mt-1">ग्रामीण सामुदायिक केंद्र एवं ग्रामीण बस्तियों में क्षेत्रीय समन्वयक की प्रत्यक्ष संपर्क गतिविधियाँ।</p>
-</div>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="सामुदायिक केंद्र सभा" data-photo-index="20">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-01.webp" alt="सामुदायिक केंद्र सभा — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center center;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">फील्ड विज़िट</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">सामुदायिक केंद्र सभा</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">महिला स्वावलंबन समूह की सदस्यों के साथ इनडोर बैठक का दृश्य।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-<div class="smf-gallery-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary" tabindex="0" role="button" aria-label="ग्रामीण क्षेत्र भ्रमण एवं जनसंपर्क" data-photo-index="21">
-  <div class="smf-card-img-wrap">
-    <img src="assets/images/client/company-activities-02.webp" alt="ग्रामीण क्षेत्र भ्रमण एवं जनसंपर्क — Sambarn Micro Finance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" style="object-position: center 30%;" loading="lazy" decoding="async"/>
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-      <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/95 text-primary font-semibold text-xs shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-        <span class="material-symbols-outlined text-[16px]">zoom_in</span> बड़ा देखें
-      </span>
-    </div>
-    <span class="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">फील्ड विज़िट</span>
-  </div>
-  <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between bg-surface-container-lowest">
-    <div>
-      <h3 class="font-bold text-[15px] sm:text-base text-primary leading-snug group-hover:text-secondary transition-colors line-clamp-1">ग्रामीण क्षेत्र भ्रमण एवं जनसंपर्क</h3>
-      <p class="font-body-sm text-[13px] text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">गाँव की गली में फील्ड समन्वयक द्वारा प्रत्यक्ष जनसंपर्क का दृश्य।</p>
-    </div>
-    <div class="mt-3.5 pt-2.5 border-t border-surface-container flex items-center justify-between text-[12px] text-on-surface-variant">
-      <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">location_on</span>पश्चिम चंपारण, बिहार</span>
-      <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">विस्तार से देखें ↗</span>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
 </main>
 
 <footer class="smf-premium-footer" aria-label="Website footer">
@@ -1482,8 +659,7 @@ Photographic records of community meetings and member interactions in West Champ
     <div class="smf-lightbox-header">
       <div class="flex items-center gap-2 sm:gap-3">
         <span id="lbCounter" class="text-xs font-mono font-bold text-white bg-white/10 px-2.5 py-1 rounded border border-white/10">1 / 22</span>
-        <span id="lbCatBadge" class="hidden sm:inline-block text-xs font-medium text-amber-300 bg-amber-400/10 px-2.5 py-1 rounded border border-amber-400/20">Category</span>
-      </div>
+        </div>
       <div class="flex items-center gap-1.5 sm:gap-2">
         <!-- Zoom Controls -->
         <button id="lbZoomOut" class="w-8 h-8 rounded bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors text-base font-bold" title="Zoom Out (-)" aria-label="Zoom out">−</button>
@@ -1503,191 +679,209 @@ Photographic records of community meetings and member interactions in West Champ
       <button class="smf-lightbox-nav next" id="lbNext" aria-label="Next image">›</button>
     </div>
 
-    <!-- Metadata Footer -->
-    <div class="smf-lightbox-footer">
-      <div>
-        <h4 id="lbTitle" class="text-primary font-bold text-base sm:text-lg leading-snug"></h4>
-        <p id="lbDesc" class="text-slate-600 text-xs sm:text-sm mt-0.5 max-w-3xl leading-relaxed"></p>
-      </div>
-      <div class="flex items-center gap-2 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100 flex-shrink-0">
-        <span id="lbDimensions" class="text-[11px] font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded"></span>
-        <span class="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium border border-emerald-200">Verified Client Asset</span>
-      </div>
     </div>
   </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var photos = [{"id": "03", "file": "company-activities-03.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Document Handover Session — West Champaran", "title_hi": "दस्तावेज़ हस्तांतरण सत्र — पश्चिम चंपारण", "desc_en": "Community member and branch representative during an official document handover in Bettiah, Bihar.", "desc_hi": "बेतिया, बिहार में आधिकारिक दस्तावेज़ आदान-प्रदान के दौरान उपस्थित सदस्य एवं शाखा प्रतिनिधि।", "orientation": "landscape", "dimensions": "1600x739", "global_index": 0}, {"id": "04", "file": "company-activities-04.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Customer Interaction & Handover", "title_hi": "ग्राहक सहभागिता एवं दस्तावेज़ हस्तांतरण", "desc_en": "Field representative presenting document to a member at the Narkatiaganj office location.", "desc_hi": "नरकटियागंज कार्यालय में सदस्य को दस्तावेज़ सौंपते हुए क्षेत्रीय प्रतिनिधि।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 1}, {"id": "05", "file": "company-activities-05.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Branch Document Exchange", "title_hi": "शाखा दस्तावेज़ आदान-प्रदान", "desc_en": "Official documentation exchange with community participant in front of company banner.", "desc_hi": "कंपनी बैनर के समक्ष सामुदायिक प्रतिभागी के साथ आधिकारिक दस्तावेज़ विनिमय।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 2}, {"id": "08", "file": "company-activities-08.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Participant Meeting & Handover", "title_hi": "प्रतिभागी बैठक एवं दस्तावेज़ हस्तांतरण", "desc_en": "Representative and village participant during documentation review and handover in Bettiah.", "desc_hi": "बेतिया में दस्तावेज़ समीक्षा एवं हस्तांतरण के दौरान प्रतिनिधि एवं ग्रामीण प्रतिभागी।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 3}, {"id": "09", "file": "company-activities-09.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Member Verification & Document Handover", "title_hi": "सदस्य सत्यापन एवं दस्तावेज़ हस्तांतरण", "desc_en": "Customer receiving document slip during an institutional coordination session.", "desc_hi": "संस्थागत समन्वय सत्र के दौरान दस्तावेज़ रसीद प्राप्त करती सदस्य।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 4}, {"id": "10", "file": "company-activities-10.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Client Document Presentation", "title_hi": "क्लाइंट दस्तावेज़ प्रस्तुति", "desc_en": "Official handover record at Sambarn Micro Finance regional operating office.", "desc_hi": "सांबर्न माइक्रो फाइनेंस के क्षेत्रीय परिचालन कार्यालय में आधिकारिक हस्तांतरण अभिलेख।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 5}, {"id": "12", "file": "company-activities-12.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Community Member Interaction", "title_hi": "सामुदायिक सदस्य संवाद एवं हस्तांतरण", "desc_en": "Formal document presentation with female community member in rural Bettiah.", "desc_hi": "ग्रामीण बेतिया में महिला सामुदायिक सदस्य के साथ औपचारिक दस्तावेज़ प्रस्तुतीकरण।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 6}, {"id": "13", "file": "company-activities-13.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Office Document Distribution", "title_hi": "कार्यालय दस्तावेज़ वितरण", "desc_en": "Staff coordinator handing over documentation slip to an enrolled member.", "desc_hi": "पंजीकृत सदस्य को दस्तावेज़ पर्ची सौंपते हुए स्टाफ समन्वयक।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 7}, {"id": "14", "file": "company-activities-14.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Participant Engagement Record", "title_hi": "प्रतिभागी सहभागिता अभिलेख", "desc_en": "Document handover session conducted under institutional branch guidelines.", "desc_hi": "संस्थागत शाखा दिशा-निर्देशों के अंतर्गत आयोजित दस्तावेज़ हस्तांतरण सत्र।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 8}, {"id": "17", "file": "company-activities-17.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Rural Member Documentation", "title_hi": "ग्रामीण सदस्य दस्तावेज़ीकरण", "desc_en": "Photographic record of document exchange with member in West Champaran.", "desc_hi": "पश्चिम चंपारण में सदस्य के साथ दस्तावेज़ विनिमय का छायाचित्र अभिलेख।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 9}, {"id": "18", "file": "company-activities-18.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Branch Handover Meeting", "title_hi": "शाखा हस्तांतरण बैठक", "desc_en": "Representative and borrower participant during an operational visit in Bettiah.", "desc_hi": "बेतिया में परिचालन दौरे के दौरान प्रतिनिधि एवं प्रतिभागी सदस्य।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 10}, {"id": "19", "file": "company-activities-19.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Field Verification & Handover", "title_hi": "फील्ड सत्यापन एवं हस्तांतरण", "desc_en": "Member receiving official paperwork at company branch in West Champaran.", "desc_hi": "पश्चिम चंपारण में कंपनी शाखा में आधिकारिक कागज़ात प्राप्त करती सदस्य।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 11}, {"id": "20", "file": "company-activities-20.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Participant Handover Record", "title_hi": "प्रतिभागी हस्तांतरण अभिलेख", "desc_en": "Documentation exchange moment documented for institutional record keeping.", "desc_hi": "संस्थागत अभिलेख संधारण हेतु प्रलेखित दस्तावेज़ विनिमय क्षण।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 12}, {"id": "21", "file": "company-activities-21.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Community Participant Session", "title_hi": "सामुदायिक प्रतिभागी सत्र", "desc_en": "Document handover ceremony at Sambarn Micro Finance Narkatiaganj center.", "desc_hi": "सांबर्न माइक्रो फाइनेंस नरकटियागंज केंद्र पर दस्तावेज़ हस्तांतरण।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 13}, {"id": "22", "file": "company-activities-22.webp", "category": "handover", "cat_en": "Customer Handover Moments", "cat_hi": "ग्राहक दस्तावेज़ हस्तांतरण के अवसर", "title_en": "Concluding Member Handover", "title_hi": "समापन सदस्य हस्तांतरण", "desc_en": "Field representative presenting document slip to village participant in Bettiah.", "desc_hi": "बेतिया में ग्रामीण प्रतिभागी को दस्तावेज़ पर्ची प्रस्तुत करते क्षेत्रीय प्रतिनिधि।", "orientation": "portrait", "dimensions": "739x1600", "global_index": 14}, {"id": "06", "file": "company-activities-06.webp", "category": "group", "cat_en": "Group & Community Moments", "cat_hi": "समूह एवं सामुदायिक गतिविधियाँ", "title_en": "Village Courtyard Gathering — View 1", "title_hi": "ग्रामीण प्रांगण सभा — दृश्य १", "desc_en": "Wide group of women and community members gathered in a residential courtyard in West Champaran.", "desc_hi": "पश्चिम चंपारण के आवासीय प्रांगण में एकत्रित महिलाओं एवं स्थानीय ग्रामीणों का समूह।", "orientation": "landscape", "dimensions": "1600x739", "global_index": 15}, {"id": "07", "file": "company-activities-07.webp", "category": "group", "cat_en": "Group & Community Moments", "cat_hi": "समूह एवं सामुदायिक गतिविधियाँ", "title_en": "Village Courtyard Gathering — View 2", "title_hi": "ग्रामीण प्रांगण सभा — दृश्य २", "desc_en": "Extended perspective of community attendees seated together during a rural awareness session.", "desc_hi": "ग्रामीण जागरूकता सत्र के दौरान एक साथ बैठे समुदाय के प्रतिभागियों का विस्तृत दृश्य।", "orientation": "landscape", "dimensions": "1600x739", "global_index": 16}, {"id": "11", "file": "company-activities-11.webp", "category": "group", "cat_en": "Group & Community Moments", "cat_hi": "समूह एवं सामुदायिक गतिविधियाँ", "title_en": "Open-Air Community Assembly", "title_hi": "खुले प्रांगण में सामुदायिक सभा", "desc_en": "Large community gathering seated outdoors for informational discussion in Bettiah rural block.", "desc_hi": "बेतिया ग्रामीण प्रखंड में परिचर्चा हेतु खुले में बैठे समुदाय के सदस्यों की विशाल सभा।", "orientation": "landscape", "dimensions": "1600x739", "global_index": 17}, {"id": "15", "file": "company-activities-15.webp", "category": "group", "cat_en": "Group & Community Moments", "cat_hi": "समूह एवं सामुदायिक गतिविधियाँ", "title_en": "Neighborhood Group Assembly — View 1", "title_hi": "मोहल्ला समूह सभा — दृश्य १", "desc_en": "Village participants seated in front of local residences during a company field coordination meet.", "desc_hi": "कंपनी के क्षेत्रीय समन्वय बैठक के दौरान स्थानीय आवास के सामने बैठे ग्रामीण प्रतिभागी।", "orientation": "landscape", "dimensions": "1600x739", "global_index": 18}, {"id": "16", "file": "company-activities-16.webp", "category": "group", "cat_en": "Group & Community Moments", "cat_hi": "समूह एवं सामुदायिक गतिविधियाँ", "title_en": "Neighborhood Group Assembly — View 2", "title_hi": "मोहल्ला समूह सभा — दृश्य २", "desc_en": "Documented assembly of self-help group participants and community residents in Bihar.", "desc_hi": "बिहार में स्वयं सहायता समूह के प्रतिभागियों एवं स्थानीय निवासियों की बैठक का अभिलेख।", "orientation": "landscape", "dimensions": "1600x739", "global_index": 19}, {"id": "01", "file": "company-activities-01.webp", "category": "field", "cat_en": "Field Visits & Engagement", "cat_hi": "फील्ड विज़िट एवं सहभागिता", "title_en": "Community Center Gathering", "title_hi": "सामुदायिक केंद्र सभा", "desc_en": "Indoor community gathering showing village women seated on rugs for institutional interaction.", "desc_hi": "संस्थागत संवाद हेतु दरी पर बैठी ग्रामीण महिलाओं की बैठक का आंतरिक छायाचित्र।", "orientation": "landscape", "dimensions": "960x686", "global_index": 20}, {"id": "02", "file": "company-activities-02.webp", "category": "field", "cat_en": "Field Visits & Engagement", "cat_hi": "फील्ड विज़िट एवं सहभागिता", "title_en": "Field Coordinator Outdoor Interaction", "title_hi": "फील्ड समन्वयक क्षेत्रीय संवाद", "desc_en": "Staff representative in mint shirt meeting with local residents in a village lane in Bettiah.", "desc_hi": "बेतिया के ग्रामीण क्षेत्र में स्थानीय निवासियों के साथ बातचीत करते फील्ड प्रतिनिधि।", "orientation": "portrait", "dimensions": "900x1600", "global_index": 21}];
+  var photos = ['company-activities-04.webp', 'company-activities-03.webp', 'company-activities-02.webp', 'company-activities-06.webp', 'company-activities-05.webp', 'company-activities-07.webp', 'company-activities-08.webp', 'company-activities-11.webp', 'company-activities-09.webp', 'company-activities-10.webp', 'company-activities-15.webp', 'company-activities-12.webp', 'company-activities-16.webp', 'company-activities-13.webp', 'company-activities-14.webp', 'company-activities-01.webp', 'company-activities-17.webp', 'company-activities-18.webp', 'company-activities-19.webp', 'company-activities-20.webp', 'company-activities-21.webp', 'company-activities-22.webp'];
 
   var currentIndex = 0;
-  var zoomLevel = 1.0;
+  var zoomLevel = 1;
+  var panX = 0, panY = 0;
   var isDragging = false;
   var startX = 0, startY = 0;
-  var translateX = 0, translateY = 0;
+  var savedScrollY = 0;
 
   var lightbox = document.getElementById('galleryLightbox');
-  var lbViewport = document.getElementById('lbViewport');
   var lbImg = document.getElementById('lbImg');
-  var lbTitle = document.getElementById('lbTitle');
-  var lbDesc = document.getElementById('lbDesc');
   var lbCounter = document.getElementById('lbCounter');
-  var lbCatBadge = document.getElementById('lbCatBadge');
-  var lbDimensions = document.getElementById('lbDimensions');
-  var lbDownload = document.getElementById('lbDownload');
-  var lbClose = document.getElementById('lbClose');
-  var lbPrev = document.getElementById('lbPrev');
-  var lbNext = document.getElementById('lbNext');
-  var lbZoomIn = document.getElementById('lbZoomIn');
-  var lbZoomOut = document.getElementById('lbZoomOut');
-  var lbZoomReset = document.getElementById('lbZoomReset');
+  var lbViewport = document.getElementById('lbViewport');
 
-  function isHindi() {
-    var hiMain = document.getElementById('smfHindiMain');
-    return document.documentElement.lang === 'hi' || (hiMain && !hiMain.hidden);
-  }
-
-  function applyTransform() {
-    lbImg.style.transform = 'translate(' + translateX + 'px, ' + translateY + 'px) scale(' + zoomLevel + ')';
-    if (lbZoomReset) lbZoomReset.textContent = Math.round(zoomLevel * 100) + '%';
-    if (lbViewport) {
-      if (zoomLevel > 1.05) {
-        lbViewport.classList.add('is-zoomed');
-      } else {
-        lbViewport.classList.remove('is-zoomed');
-      }
+  function updateTransform() {
+    if (!lbImg) return;
+    if (zoomLevel === 1) {
+      panX = 0;
+      panY = 0;
+      lbImg.style.transform = 'translate(0px, 0px) scale(1)';
+      if (lbViewport) lbViewport.classList.remove('is-zoomed', 'is-dragging');
+    } else {
+      lbImg.style.transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + zoomLevel + ')';
+      if (lbViewport) lbViewport.classList.add('is-zoomed');
     }
   }
 
   function resetZoom() {
-    zoomLevel = 1.0;
-    translateX = 0;
-    translateY = 0;
-    applyTransform();
+    zoomLevel = 1;
+    panX = 0;
+    panY = 0;
+    updateTransform();
   }
 
-  function setZoom(newZoom) {
-    zoomLevel = Math.max(1.0, Math.min(newZoom, 3.0));
-    if (zoomLevel === 1.0) {
-      translateX = 0;
-      translateY = 0;
+  function setZoom(lvl) {
+    zoomLevel = Math.max(1, Math.min(3.5, lvl));
+    if (zoomLevel === 1) {
+      panX = 0;
+      panY = 0;
     }
-    applyTransform();
+    updateTransform();
   }
 
   function showPhoto(idx) {
+    if (!photos || photos.length === 0) return;
     if (idx < 0) idx = photos.length - 1;
     if (idx >= photos.length) idx = 0;
     currentIndex = idx;
-    resetZoom();
+    var filename = photos[currentIndex];
 
-    var item = photos[idx];
-    var hindi = isHindi();
-    var src = 'assets/images/client/' + item.file;
-    lbImg.src = src;
-    lbImg.alt = hindi ? item.title_hi : item.title_en;
-    lbTitle.textContent = hindi ? item.title_hi : item.title_en;
-    lbDesc.textContent = hindi ? item.desc_hi : item.desc_en;
-    lbCounter.textContent = (idx + 1) + ' / ' + photos.length;
-    lbCatBadge.textContent = hindi ? item.cat_hi : item.cat_en;
-    lbDimensions.textContent = item.dimensions;
-    if (lbDownload) lbDownload.href = src;
+    if (lbImg) {
+      lbImg.src = 'assets/images/client/' + filename;
+    }
+    if (lbCounter) {
+      lbCounter.textContent = (currentIndex + 1) + ' / ' + photos.length;
+    }
+    resetZoom();
   }
 
   function openLightbox(idx) {
-    showPhoto(idx);
+    savedScrollY = window.scrollY || window.pageYOffset || 0;
+    if (!lightbox) return;
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
+    showPhoto(idx);
   }
 
   function closeLightbox() {
+    if (!lightbox) return;
     lightbox.classList.remove('is-open');
     document.body.style.overflow = '';
     resetZoom();
+    // Restore exact scroll position
+    window.scrollTo(0, savedScrollY);
   }
 
-  // Card click bindings
-  document.querySelectorAll('.smf-gallery-card').forEach(function(card) {
-    var idx = parseInt(card.getAttribute('data-photo-index'), 10);
-    card.addEventListener('click', function(e) {
-      openLightbox(idx);
-    });
-    card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
+  // Attach click & keyboard listeners to all photo items
+  function attachGalleryListeners() {
+    var items = document.querySelectorAll('.smf-photo-item');
+    items.forEach(function(item) {
+      item.addEventListener('click', function() {
+        var idx = parseInt(this.getAttribute('data-photo-index'), 10) || 0;
         openLightbox(idx);
-      }
-    });
-  });
-
-  // Buttons
-  if (lbClose) lbClose.addEventListener('click', closeLightbox);
-  if (lbPrev) lbPrev.addEventListener('click', function(e) { e.stopPropagation(); showPhoto(currentIndex - 1); });
-  if (lbNext) lbNext.addEventListener('click', function(e) { e.stopPropagation(); showPhoto(currentIndex + 1); });
-  if (lbZoomIn) lbZoomIn.addEventListener('click', function(e) { e.stopPropagation(); setZoom(zoomLevel + 0.5); });
-  if (lbZoomOut) lbZoomOut.addEventListener('click', function(e) { e.stopPropagation(); setZoom(zoomLevel - 0.5); });
-  if (lbZoomReset) lbZoomReset.addEventListener('click', function(e) { e.stopPropagation(); resetZoom(); });
-
-  // Double click toggle zoom
-  if (lbImg) {
-    lbImg.addEventListener('dblclick', function(e) {
-      e.stopPropagation();
-      if (zoomLevel > 1.05) resetZoom();
-      else setZoom(2.0);
+      });
+      item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          var idx = parseInt(this.getAttribute('data-photo-index'), 10) || 0;
+          openLightbox(idx);
+        }
+      });
     });
   }
 
-  // Pan dragging when zoomed
+  attachGalleryListeners();
+
+  // Navigation buttons
+  var prevBtn = document.getElementById('lbPrev');
+  var nextBtn = document.getElementById('lbNext');
+  var closeBtn = document.getElementById('lbClose');
+  var zoomInBtn = document.getElementById('lbZoomIn');
+  var zoomOutBtn = document.getElementById('lbZoomOut');
+  var zoomResetBtn = document.getElementById('lbZoomReset');
+
+  if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); showPhoto(currentIndex - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); showPhoto(currentIndex + 1); });
+  if (closeBtn) closeBtn.addEventListener('click', function(e) { e.stopPropagation(); closeLightbox(); });
+  if (zoomInBtn) zoomInBtn.addEventListener('click', function(e) { e.stopPropagation(); setZoom(zoomLevel + 0.5); });
+  if (zoomOutBtn) zoomOutBtn.addEventListener('click', function(e) { e.stopPropagation(); setZoom(zoomLevel - 0.5); });
+  if (zoomResetBtn) zoomResetBtn.addEventListener('click', function(e) { e.stopPropagation(); resetZoom(); });
+
+  // Pan / Drag functionality when zoomed
   if (lbViewport) {
     lbViewport.addEventListener('mousedown', function(e) {
-      if (e.target === lbPrev || e.target === lbNext) return;
-      if (zoomLevel > 1.05) {
-        isDragging = true;
-        startX = e.clientX - translateX;
-        startY = e.clientY - translateY;
-        lbViewport.classList.add('is-dragging');
-        e.preventDefault();
-      }
+      if (zoomLevel <= 1) return;
+      isDragging = true;
+      startX = e.clientX - panX;
+      startY = e.clientY - panY;
+      lbViewport.classList.add('is-dragging');
     });
 
     window.addEventListener('mousemove', function(e) {
       if (!isDragging) return;
-      translateX = e.clientX - startX;
-      translateY = e.clientY - startY;
-      applyTransform();
+      panX = e.clientX - startX;
+      panY = e.clientY - startY;
+      updateTransform();
     });
 
     window.addEventListener('mouseup', function() {
       if (isDragging) {
         isDragging = false;
-        lbViewport.classList.remove('is-dragging');
+        if (lbViewport) lbViewport.classList.remove('is-dragging');
       }
     });
-  }
 
-  // Touch Swipe for mobile (prev/next navigation)
-  var touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0;
-  if (lbViewport) {
+    // Mouse wheel zoom
+    lbViewport.addEventListener('wheel', function(e) {
+      if (!lightbox || !lightbox.classList.contains('is-open')) return;
+      e.preventDefault();
+      var delta = e.deltaY < 0 ? 0.25 : -0.25;
+      setZoom(zoomLevel + delta);
+    }, { passive: false });
+
+    // Mobile touch swipe, pinch-to-zoom & touch pan
+    var touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0;
+    var initialPinchDist = 0;
+    var initialZoom = 1;
+
+    function getPinchDistance(e) {
+      var dx = e.touches[0].clientX - e.touches[1].clientX;
+      var dy = e.touches[0].clientY - e.touches[1].clientY;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
     lbViewport.addEventListener('touchstart', function(e) {
       if (e.touches.length === 1) {
         touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
+        if (zoomLevel > 1) {
+          isDragging = true;
+          startX = touchStartX - panX;
+          startY = touchStartY - panY;
+        }
+      } else if (e.touches.length === 2) {
+        isDragging = false;
+        initialPinchDist = getPinchDistance(e);
+        initialZoom = zoomLevel;
+      }
+    }, { passive: true });
+
+    lbViewport.addEventListener('touchmove', function(e) {
+      if (e.touches.length === 2 && initialPinchDist > 0) {
+        var dist = getPinchDistance(e);
+        var factor = dist / initialPinchDist;
+        setZoom(initialZoom * factor);
+      } else if (zoomLevel > 1 && isDragging && e.touches.length === 1) {
+        panX = e.touches[0].clientX - startX;
+        panY = e.touches[0].clientY - startY;
+        updateTransform();
+      } else if (e.touches.length === 1) {
+        touchEndX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY;
       }
     }, { passive: true });
 
     lbViewport.addEventListener('touchend', function(e) {
-      if (e.changedTouches.length === 1 && zoomLevel <= 1.05) {
-        touchEndX = e.changedTouches[0].clientX;
-        touchEndY = e.changedTouches[0].clientY;
-        var diffX = touchEndX - touchStartX;
-        var diffY = touchEndY - touchStartY;
-        if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY)) {
-          if (diffX > 0) {
-            showPhoto(currentIndex - 1);
-          } else {
-            showPhoto(currentIndex + 1);
-          }
+      if (e.touches.length < 2) {
+        initialPinchDist = 0;
+      }
+      if (zoomLevel > 1) {
+        isDragging = false;
+      } else if (e.touches.length === 0) {
+        var dx = touchEndX - touchStartX;
+        var dy = touchEndY - touchStartY;
+        if (Math.abs(dx) > 40 && Math.abs(dy) < 60) {
+          if (dx < 0) showPhoto(currentIndex + 1);
+          else showPhoto(currentIndex - 1);
         }
       }
     }, { passive: true });
@@ -1711,14 +905,10 @@ document.addEventListener('DOMContentLoaded', function() {
     else if (e.key === '0' || e.key === 'r') resetZoom();
   });
 
-  // Update text when language switches
+  // Re-attach listeners if language changes
   document.querySelectorAll('.smf-lang-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      setTimeout(function() {
-        if (lightbox && lightbox.classList.contains('is-open')) {
-          showPhoto(currentIndex);
-        }
-      }, 50);
+      setTimeout(attachGalleryListeners, 100);
     });
   });
 });

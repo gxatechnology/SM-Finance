@@ -10,6 +10,7 @@
   background: #0f172a;
 }
 
+.text-white { color: #ffffff !important; }
 </style><meta content="Sambarn Micro Finance Private Limited — company information, community aspirations and financial awareness. Registered in West Champaran, Bihar." name="description"/><link href="assets/images/client/smf-favicon-32x32.png" rel="icon"/><link href="assets/css/site.css" rel="stylesheet"/><meta content="#082C53" name="theme-color"/><meta content="Together, Towards a Better Tomorrow | SMF" property="og:title"/><meta content="website" property="og:type"/><meta content="assets/images/client/smf-og-image.webp" property="og:image"/><link href="assets/css/smf-header.css" rel="stylesheet"/>
 <link href="assets/css/smf-bilingual.css" rel="stylesheet"/></head><body class="smf-page-index bg-surface font-body-md text-on-surface antialiased" data-smf-page="index.html"><header class="smf-site-header" id="site-header"><div class="smf-utility-bar"><span class="smf-utility-message" data-en="Registered in Bihar • Corporate Information" data-hi="बिहार में पंजीकृत • कॉर्पोरेट जानकारी">Registered in Bihar • Corporate Information</span><div aria-label="Website language" class="smf-language-switch" role="group"><button aria-pressed="true" class="smf-lang-btn" data-lang="en" type="button">English</button><button aria-pressed="false" class="smf-lang-btn" data-lang="hi" type="button">हिंदी</button></div></div>
 <div class="smf-header-inner">
@@ -616,94 +617,32 @@
 </section>
 
 <!-- Activity & Community Focus Preview Band -->
-<section class="w-full py-16 bg-surface-container-low border-t border-surface-container">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+<section class="w-full py-12 lg:py-16 bg-surface-container-low border-t border-surface-container">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm uppercase tracking-wider font-semibold mb-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Grassroots Documentation • West Champaran
-        </div>
-        <h2 class="font-headline-lg text-headline-lg text-primary tracking-tight">Explore Our Field Activities</h2>
-        <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">Authentic photographic records of our community meetings, document handovers, and village outreach across West Champaran, Bihar.</p>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary tracking-tight font-display">Photo Gallery</h2>
+        <p class="text-sm sm:text-base text-on-surface-variant mt-1.5 max-w-xl">Authentic visual records of community interactions and field activities in West Champaran, Bihar.</p>
       </div>
-      <a href="gallery.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-white font-semibold text-sm shadow-sm transition-all hover:shadow-md self-start sm:self-auto flex-shrink-0">
-        <span>View All Field Activities ↗</span>
-        <span class="material-symbols-outlined text-[18px]">photo_library</span>
+      <a href="gallery.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-white font-semibold text-sm shadow-sm transition-all hover:shadow-md self-start sm:self-auto flex-shrink-0" style="color: #ffffff !important;">
+        <span>View Photo Gallery</span>
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
       </a>
     </div>
 
-    <!-- 4 Curated Authentic Client Field Activity Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Card 1: Handover (company-activities-04) -->
-      <a href="gallery.html" class="smf-preview-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group">
-        <div class="relative w-full h-56 bg-slate-900/10 overflow-hidden smf-card-img-wrap">
-          <img src="assets/images/client/company-activities-04.webp" alt="Customer Handover Session — Sambarn Micro Finance" class="w-full h-full object-cover object-[center_28%] group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
-          <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Handover Moment</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-primary text-sm group-hover:text-secondary transition-colors line-clamp-1">Customer Handover Session</h3>
-            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Direct member interaction and document handover at West Champaran branch.</p>
-          </div>
-          <div class="mt-4 pt-2.5 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
-            <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>West Champaran</span>
-            <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">View Gallery ↗</span>
-          </div>
-        </div>
+    <!-- 4 Photo-Only Thumbnails Grid (2x2 on mobile, 4 cols on desktop) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+      <a href="gallery.html" class="group relative block aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/10 shadow-sm hover:shadow-lg transition-all" aria-label="View photo in gallery">
+        <img src="assets/images/client/company-activities-04.webp" alt="Sambarn Activity Photo" class="w-full h-full object-cover object-[center_28%] group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
       </a>
-
-      <!-- Card 2: Field Visit (company-activities-02) -->
-      <a href="gallery.html" class="smf-preview-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group">
-        <div class="relative w-full h-56 bg-slate-900/10 overflow-hidden smf-card-img-wrap">
-          <img src="assets/images/client/company-activities-02.webp" alt="Rural Community Field Visit — Sambarn Micro Finance" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
-          <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Field Outreach</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-primary text-sm group-hover:text-secondary transition-colors line-clamp-1">Rural Field Outreach</h3>
-            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Field coordinator during an active village visit and direct community engagement.</p>
-          </div>
-          <div class="mt-4 pt-2.5 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
-            <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>Bettiah Rural</span>
-            <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">View Gallery ↗</span>
-          </div>
-        </div>
+      <a href="gallery.html" class="group relative block aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/10 shadow-sm hover:shadow-lg transition-all" aria-label="View photo in gallery">
+        <img src="assets/images/client/company-activities-02.webp" alt="Sambarn Activity Photo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
       </a>
-
-      <!-- Card 3: Community Group (company-activities-06) -->
-      <a href="gallery.html" class="smf-preview-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group">
-        <div class="relative w-full h-56 bg-slate-900/10 overflow-hidden smf-card-img-wrap">
-          <img src="assets/images/client/company-activities-06.webp" alt="Village Community Gathering — Sambarn Micro Finance" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
-          <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Community Gathering</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-primary text-sm group-hover:text-secondary transition-colors line-clamp-1">Village Community Gathering</h3>
-            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Open-air village assembly discussing transparent practices with local women.</p>
-          </div>
-          <div class="mt-4 pt-2.5 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
-            <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>West Champaran</span>
-            <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">View Gallery ↗</span>
-          </div>
-        </div>
+      <a href="gallery.html" class="group relative block aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/10 shadow-sm hover:shadow-lg transition-all" aria-label="View photo in gallery">
+        <img src="assets/images/client/company-activities-06.webp" alt="Sambarn Activity Photo" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
       </a>
-
-      <!-- Card 4: Handover (company-activities-08) -->
-      <a href="gallery.html" class="smf-preview-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-outline-variant/15 flex flex-col group">
-        <div class="relative w-full h-56 bg-slate-900/10 overflow-hidden smf-card-img-wrap">
-          <img src="assets/images/client/company-activities-08.webp" alt="Member Interaction & Handover — Sambarn Micro Finance" class="w-full h-full object-cover object-[center_28%] group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
-          <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-primary/85 backdrop-blur-md text-white text-[11px] font-semibold tracking-wider uppercase">Member Interaction</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-primary text-sm group-hover:text-secondary transition-colors line-clamp-1">Member Interaction Session</h3>
-            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">Document exchange and member verification session at local field center.</p>
-          </div>
-          <div class="mt-4 pt-2.5 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
-            <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>Narkatiaganj</span>
-            <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">View Gallery ↗</span>
-          </div>
-        </div>
+      <a href="gallery.html" class="group relative block aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/10 shadow-sm hover:shadow-lg transition-all" aria-label="View photo in gallery">
+        <img src="assets/images/client/company-activities-08.webp" alt="Sambarn Activity Photo" class="w-full h-full object-cover object-[center_28%] group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
       </a>
     </div>
   </div>
@@ -711,94 +650,32 @@
 
 <section class="smf-values-band"><div class="smf-content-shell"><div class="smf-values-heading"><span class="smf-eyebrow">OUR APPROACH</span><h2>Our vision, mission &amp; values</h2></div><div class="smf-values-grid"><div><span class="smf-value-icon">◎</span><h3>Our Vision</h3><p>To see informed, confident and self-reliant communities flourish.</p></div><div><span class="smf-value-icon">↗</span><h3>Our Mission</h3><p>To place respect, financial understanding and responsible communication at the centre of our corporate journey.</p></div><div><span class="smf-value-icon">♡</span><h3>Our Values</h3><p>Clarity, dignity, accountability and long-term thinking are the principles we aspire to uphold.</p></div></div></div></section></main><script defer="" src="assets/js/site.js"></script><script defer="" src="assets/js/smf-header.js"></script>
 <main class="smf-hi-main" dir="auto" hidden="" id="smfHindiMain"><section class="smf-hi-hero"><div class="smf-content-shell smf-hi-hero-grid"><div class="smf-hi-hero-copy"><div class="smf-eyebrow">बिहार • कॉर्पोरेट परिचय</div><h1>साथ मिलकर बेहतर कल की ओर</h1><p>विश्वास, जानकारी और प्रगति से जुड़ी एक नई शुरुआत। सांबर्न माइक्रो फाइनेंस प्राइवेट लिमिटेड की कॉर्पोरेट जानकारी, उद्देश्य और वित्तीय जागरूकता सामग्री यहाँ देखें।</p><div class="smf-hi-actions"><a class="smf-hi-cta" href="contact.html">संपर्क करें ↗</a><a class="smf-hi-outline" href="about.html">कंपनी के बारे में</a><a class="smf-hi-cta" style="background:#06294d;color:#fff;" href="https://www.google.com/maps/dir/?api=1&destination=27.1006187%2C84.4722669" target="_blank" rel="noopener noreferrer">रास्ता देखें ↗</a></div></div><div class="smf-hi-hero-image"><img alt="भारतीय ग्रामीण जीवन का उदाहरणात्मक चित्र" loading="lazy" src="assets/images/rural-women-conversation.webp"/><small>चित्र केवल प्रस्तुतीकरण हेतु है</small></div></div></section><section class="smf-hi-sections"><div class="smf-content-shell"><div class="smf-hi-heading"><span class="smf-eyebrow">विस्तृत जानकारी</span><h2>जानिए और समझिए</h2></div><div class="smf-hi-card-grid"><article class="smf-hi-card"><span class="smf-hi-dot"></span><h2>हमारे बारे में</h2><p>बिहार के पश्चिम चंपारण क्षेत्र से जुड़ी यह भारतीय निजी लिमिटेड कंपनी 6 नवंबर 2025 को निगमित हुई थी। पंजीकरण विवरण और कार्यालय के बारे में स्पष्ट जानकारी हमारी वेबसाइट पर उपलब्ध है।</p></article><article class="smf-hi-card"><span class="smf-hi-dot"></span><h2>हमारी सोच</h2><p>हम ऐसे समाज की कल्पना करते हैं जहाँ लोगों को सही वित्तीय जानकारी मिले, वे अपनी आजीविका के बारे में समझदारी से निर्णय लें और हर व्यक्ति की गरिमा का सम्मान हो।</p></article><article class="smf-hi-card"><span class="smf-hi-dot"></span><h2>हमारा उद्देश्य</h2><p>महिलाओं के उद्यम, छोटे दुकानदारों और ग्रामीण परिवारों के जीवन की वास्तविकताओं को समझना तथा भरोसेमंद संवाद और वित्तीय जानकारी को बढ़ावा देना।</p></article><article class="smf-hi-card"><span class="smf-hi-dot"></span><h2>हमारे मूल्य</h2><p>पारदर्शिता, सम्मान, जिम्मेदारी और जानकारी पर आधारित निर्णय हमारी प्रस्तावित ब्रांड पहचान के प्रमुख आधार हैं।</p></article><article class="smf-hi-card"><span class="smf-hi-dot"></span><h2>आगे बढ़ते समुदाय</h2><p>गाँव की महिलाएँ, स्थानीय दुकानें, खेती और छोटे उद्यम—ये सभी भारतीय अर्थव्यवस्था की महत्वपूर्ण कहानियाँ हैं। हमारे चित्र इन्हीं जीवन अनुभवों को दर्शाते हैं।</p></article><article class="smf-hi-card"><span class="smf-hi-dot"></span><h2>संपर्क करें</h2><p>कंपनी के बारे में या उपलब्ध सेवाओं के संबंध में जानकारी चाहिए? कृपया सामान्य पूछताछ फॉर्म के माध्यम से संपर्क करें।</p></article></div><!-- Hindi Activity & Community Focus Preview Band -->
-<section class="w-full py-12 bg-surface-container-low border-t border-surface-container">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8">
+<section class="w-full py-12 lg:py-16 bg-surface-container-low border-t border-surface-container">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/15 text-secondary text-xs uppercase tracking-wider font-semibold mb-2">
-          जमीनी गतिविधि अभिलेख • पश्चिम चंपारण
-        </div>
-        <h2 class="text-2xl lg:text-3xl font-bold text-primary tracking-tight">हमारी फील्ड गतिविधियाँ देखें</h2>
-        <p class="text-sm text-on-surface-variant max-w-2xl mt-1">पश्चिम चंपारण, बिहार में आयोजित सामुदायिक बैठकों, दस्तावेज़ हस्तांतरण एवं प्रत्यक्ष जनसंपर्क के प्रामाणिक छायाचित्र।</p>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary tracking-tight font-display">फोटो गैलरी</h2>
+        <p class="text-sm sm:text-base text-on-surface-variant mt-1.5 max-w-xl">पश्चिम चंपारण, बिहार में आयोजित सामुदायिक बैठकों एवं सदस्य संवाद के प्रामाणिक छायाचित्र।</p>
       </div>
-      <a href="gallery.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-white font-semibold text-sm shadow-sm transition-all self-start sm:self-auto flex-shrink-0">
-        <span>सभी गतिविधियाँ देखें ↗</span>
-        <span class="material-symbols-outlined text-[18px]">photo_library</span>
+      <a href="gallery.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary hover:bg-primary/90 text-white font-semibold text-sm shadow-sm transition-all hover:shadow-md self-start sm:self-auto flex-shrink-0" style="color: #ffffff !important;">
+        <span>फोटो गैलरी देखें</span>
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
       </a>
     </div>
 
-    <!-- 4 Hindi Curated Authentic Client Field Activity Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Card 1: Handover (company-activities-04) -->
-      <a href="gallery.html" class="smf-preview-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/15 flex flex-col group">
-        <div class="relative w-full h-56 bg-slate-900/10 overflow-hidden smf-card-img-wrap">
-          <img src="assets/images/client/company-activities-04.webp" alt="ग्राहक दस्तावेज़ हस्तांतरण — संबरन माइक्रो फाइनेंस" class="w-full h-full object-cover object-[center_28%] group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
-          <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-primary/85 text-white text-[11px] font-semibold">हस्तांतरण</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-primary text-sm group-hover:text-secondary line-clamp-1">ग्राहक दस्तावेज़ हस्तांतरण</h3>
-            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">पश्चिम चंपारण शाखा में सदस्य संवाद एवं आधिकारिक दस्तावेज़ हस्तांतरण का अवसर।</p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
-            <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>पश्चिम चंपारण</span>
-            <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">गैलरी देखें ↗</span>
-          </div>
-        </div>
+    <!-- 4 Hindi Photo-Only Thumbnails Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+      <a href="gallery.html" class="group relative block aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/10 shadow-sm hover:shadow-lg transition-all" aria-label="गैलरी में फोटो देखें">
+        <img src="assets/images/client/company-activities-04.webp" alt="संबरन गतिविधि छायाचित्र" class="w-full h-full object-cover object-[center_28%] group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
       </a>
-
-      <!-- Card 2: Field Visit (company-activities-02) -->
-      <a href="gallery.html" class="smf-preview-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/15 flex flex-col group">
-        <div class="relative w-full h-56 bg-slate-900/10 overflow-hidden smf-card-img-wrap">
-          <img src="assets/images/client/company-activities-02.webp" alt="ग्रामीण फील्ड भ्रमण — संबरन माइक्रो फाइनेंस" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
-          <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-primary/85 text-white text-[11px] font-semibold">फील्ड भ्रमण</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-primary text-sm group-hover:text-secondary line-clamp-1">ग्रामीण फील्ड भ्रमण</h3>
-            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">गाँव में फील्ड समन्वयक द्वारा प्रत्यक्ष सामुदायिक संवाद एवं जनसंपर्क।</p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
-            <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>बेतिया ग्रामीण</span>
-            <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">गैलरी देखें ↗</span>
-          </div>
-        </div>
+      <a href="gallery.html" class="group relative block aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/10 shadow-sm hover:shadow-lg transition-all" aria-label="गैलरी में फोटो देखें">
+        <img src="assets/images/client/company-activities-02.webp" alt="संबरन गतिविधि छायाचित्र" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
       </a>
-
-      <!-- Card 3: Community Group (company-activities-06) -->
-      <a href="gallery.html" class="smf-preview-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/15 flex flex-col group">
-        <div class="relative w-full h-56 bg-slate-900/10 overflow-hidden smf-card-img-wrap">
-          <img src="assets/images/client/company-activities-06.webp" alt="ग्रामीण सामुदायिक बैठक — संबरन माइक्रो फाइनेंस" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
-          <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-primary/85 text-white text-[11px] font-semibold">सामुदायिक बैठक</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-primary text-sm group-hover:text-secondary line-clamp-1">ग्रामीण सामुदायिक बैठक</h3>
-            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">ग्रामीण महिलाओं एवं स्थानीय निवासियों के साथ आयोजित खुली चौपाल बैठक।</p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
-            <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>पश्चिम चंपारण</span>
-            <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">गैलरी देखें ↗</span>
-          </div>
-        </div>
+      <a href="gallery.html" class="group relative block aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/10 shadow-sm hover:shadow-lg transition-all" aria-label="गैलरी में फोटो देखें">
+        <img src="assets/images/client/company-activities-06.webp" alt="संबरन गतिविधि छायाचित्र" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
       </a>
-
-      <!-- Card 4: Handover (company-activities-08) -->
-      <a href="gallery.html" class="smf-preview-card bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-outline-variant/15 flex flex-col group">
-        <div class="relative w-full h-56 bg-slate-900/10 overflow-hidden smf-card-img-wrap">
-          <img src="assets/images/client/company-activities-08.webp" alt="सदस्य संवाद एवं पावती सत्र — संबरन माइक्रो फाइनेंस" class="w-full h-full object-cover object-[center_28%] group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
-          <span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-primary/85 text-white text-[11px] font-semibold">सदस्य संवाद</span>
-        </div>
-        <div class="p-4 flex-1 flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-primary text-sm group-hover:text-secondary line-clamp-1">सदस्य संवाद एवं पावती सत्र</h3>
-            <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed line-clamp-2">स्थानीय केंद्र पर आधिकारिक पावती एवं दस्तावेज़ हस्तांतरण का क्षण।</p>
-          </div>
-          <div class="mt-4 pt-2 border-t border-surface-container flex items-center justify-between text-[11px] text-on-surface-variant">
-            <span class="inline-flex items-center gap-1"><span class="material-symbols-outlined text-[13px] text-secondary">location_on</span>नरकटियागंज</span>
-            <span class="text-secondary font-semibold group-hover:translate-x-0.5 transition-transform">गैलरी देखें ↗</span>
-          </div>
-        </div>
+      <a href="gallery.html" class="group relative block aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900/10 shadow-sm hover:shadow-lg transition-all" aria-label="गैलरी में फोटो देखें">
+        <img src="assets/images/client/company-activities-08.webp" alt="संबरन गतिविधि छायाचित्र" class="w-full h-full object-cover object-[center_28%] group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
       </a>
     </div>
   </div>
